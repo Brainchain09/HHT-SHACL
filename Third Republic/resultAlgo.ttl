@@ -109,7 +109,7 @@ obaData:Change212DIJON_1870212DIJON_1932
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change212DIJON_1870212DIJON_1932 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1924211BEAUNE_1932 .
 
 obaData:ComplexChangeBasedOn_Change103TROYES_1870103TROYES_1887
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change105BAR-SUR-SEINE_1870105BAR-SUR-SEINE_1887 , obaData:ComplexChangeBasedOn_Change103TROYES_1870103TROYES_1887 .
 
 obaData:251BESANCON_1927
@@ -155,7 +155,7 @@ obaData:773PROVINS_1870
         hht:hasNextVersion  obaData:773PROVINS_1927 .
 
 obaData:ComplexChangeBasedOn_ChangeKREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1871KREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1873
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_ChangeKREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1871KREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1873 , obaData:ComplexChangeBasedOn_ChangeKREIS_ERSTEINKREIS_ERSTEIN_1871KREIS_ERSTEINKREIS_ERSTEIN_1873 .
 
 obaData:111CARCASSONNE_1870
@@ -175,7 +175,7 @@ obaData:Change782PONTOISE_1870782PONTOISE_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_785MANTES_1870 .
 
 obaData:ComplexChangeBasedOn_Change653TARBES_1870653TARBES_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change653TARBES_1870653TARBES_1927 , obaData:ComplexChangeBasedOn_Disparition_651ARGELES-GAZOST_1897 .
 
 obaData:Disparition_334LESPARRE_1870
@@ -194,7 +194,7 @@ obaData:822MONTAUBAN_1927
         hht:emergesFrom  obaData:Change822MONTAUBAN_1870822MONTAUBAN_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_823MOISSAC_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change822MONTAUBAN_1870822MONTAUBAN_1927 , obaData:ComplexChangeBasedOn_Disparition_823MOISSAC_1870 .
 
 obaData:764NEUFCHATEL_1870
@@ -226,7 +226,7 @@ obaData:ComplexChangeBasedOn_Disparition_311MURET_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_314VILLEFRANCHE_1870 , obaData:ComplexChangeBasedOn_Disparition_311MURET_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_403SAINT-SEVER_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_403SAINT-SEVER_1870 .
 
 obaData:702VESOUL_1870
@@ -304,7 +304,7 @@ obaData:045SISTERON_1870
         hht:goesThrough  obaData:Disparition_045SISTERON_1870 .
 
 obaData:ComplexChangeBasedOn_Change553VERDUN_1870553VERDUN_1913
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change554MONTMEDY_1870554MONTMEDY_1913 , obaData:ComplexChangeBasedOn_Change553VERDUN_1870553VERDUN_1913 .
 
 obaData:102NOGENT-SUR-SEINE_1927
@@ -319,7 +319,7 @@ obaData:562PONTIVY_1870
         hht:hasNextVersion  obaData:562PONTIVY_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_833BRIGNOLES_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_833BRIGNOLES_1870 .
 
 obaData:Disparition_342LODEVE_1870
@@ -349,7 +349,7 @@ obaData:Apparition_KREIS_ALTKIRCHKREIS_ALTKIRCH_1871
         hht:isPartOf  obaData:ComplexChangeBasedOn_Apparition_KREIS_THANNKREIS_THANN_1871 , obaData:ComplexChangeBasedOn_Apparition_901BELFORT_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_ALTKIRCHKREIS_ALTKIRCH_1871 , obaData:ComplexChangeBasedOn_Disparition_687BELFORT_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_651ARGELES-GAZOST_1897
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_651ARGELES-GAZOST_1897 , obaData:ComplexChangeBasedOn_Change653TARBES_1870653TARBES_1927 .
 
 obaData:893SENS_1927  hht:emergesFrom  obaData:Change893SENS_1870893SENS_1927 .
@@ -359,7 +359,7 @@ obaData:302NIMES_1870
         hht:hasNextVersion  obaData:302NIMES_1927 .
 
 obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1870742BONNEVILLE_1924
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1870742BONNEVILLE_1924 , obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1891744THONON-LES-BAINS_1924 .
 
 obaData:Change643PAU_1870643PAU_1927
@@ -407,7 +407,7 @@ obaData:594DUNKERQUE_1927
         hht:emergesFrom  obaData:Change594DUNKERQUE_1870594DUNKERQUE_1927 .
 
 obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927 , obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870 , obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870 .
 
 obaData:Change471AGEN_1870471AGEN_1927
@@ -429,7 +429,7 @@ obaData:Change712CHALON-SUR-SAONE_1870712CHALON-SUR-SAONE_1906
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change712CHALON-SUR-SAONE_1870712CHALON-SUR-SAONE_1906 , obaData:ComplexChangeBasedOn_Change714LOUHANS_1870714LOUHANS_1906 .
 
 obaData:ComplexChangeBasedOn_Change752SAINT-DENIS_1870752SAINT-DENIS_1894
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change752SAINT-DENIS_1870752SAINT-DENIS_1894 , obaData:ComplexChangeBasedOn_Change753SCEAUX_1870753SCEAUX_1894 .
 
 obaData:184SANCERRE_1870
@@ -446,7 +446,7 @@ obaData:Disparition_394POLIGNY_1870
         hht:isPartOf  <http://www.semanticweb.org/melodi/data#ComplexChangeBasedOn_Disparition_175SAINT-JEAN-D'ANGELY_1870> .
 
 obaData:ComplexChangeBasedOn_Disparition_225LOUDEAC_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_225LOUDEAC_1870 .
 
 obaData:294QUIMPER_1927
@@ -462,7 +462,7 @@ obaData:333LANGON_1927
         hht:emergesFrom  obaData:Change333LA_REOLE_1870333LANGON_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927 , obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870 , obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870 .
 
 obaData:Change742BONNEVILLE_1934742BONNEVILLE_1940
@@ -535,7 +535,7 @@ obaData:506VALOGNES_1870
         hht:goesThrough  obaData:Disparition_506VALOGNES_1870 .
 
 obaData:ComplexChangeBasedOn_Change822MONTAUBAN_1870822MONTAUBAN_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change822MONTAUBAN_1870822MONTAUBAN_1927 , obaData:ComplexChangeBasedOn_Disparition_823MOISSAC_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_342LODEVE_1870
@@ -547,7 +547,7 @@ obaData:832TOULON_1870
         hht:hasNextVersion  obaData:832TOULON_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_644MAULEON_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_645ORTHEZ_1870 , obaData:ComplexChangeBasedOn_Disparition_644MAULEON_1870 .
 
 obaData:292CHATEAULIN_1870
@@ -620,7 +620,7 @@ obaData:604SENLIS_1870
         hht:hasNextVersion  obaData:604SENLIS_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_776COULOMMIERS_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_774FONTAINEBLEAU_1870 , obaData:ComplexChangeBasedOn_Disparition_776COULOMMIERS_1870 .
 
 obaData:831DRAGUIGNAN_1870
@@ -688,7 +688,7 @@ obaData:043DIGNE_1870
         hht:hasNextVersion  obaData:043DIGNE_1927 .
 
 obaData:ComplexChangeBasedOn_Change552COMMERCY_1870552COMMERCY_1878
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change552COMMERCY_1870552COMMERCY_1878 , obaData:ComplexChangeBasedOn_Change551BAR-LE-DUC_1870551BAR-LE-DUC_1878 .
 
 obaData:Apparition_673MOLSHEIM_1919
@@ -753,7 +753,7 @@ obaData:Change123VILLEFRANCHE_1870123VILLEFRANCHE-DE-ROUERGUE_1920
         hht:before  obaData:123VILLEFRANCHE_1870 .
 
 obaData:ComplexChangeBasedOn_Change084VOUZIERS_1870084VOUZIERS_1925
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change084VOUZIERS_1870084VOUZIERS_1925 , obaData:ComplexChangeBasedOn_Change082RETHEL_1870082RETHEL_1925 .
 
 obaData:322CONDOM_1870
@@ -775,7 +775,7 @@ obaData:ComplexChangeBasedOn_Disparition_413ROMORANTIN_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_413ROMORANTIN_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_884MIRECOURT_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_885REMIREMONT_1870 , obaData:ComplexChangeBasedOn_Disparition_884MIRECOURT_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_KREIS_DIEDENHOFEN-O.KREIS_DIEDENHOFEN-O._1901
@@ -809,7 +809,7 @@ obaData:515SAINTE-MENEHOULD_1870
         hht:hasNextVersion  obaData:515SAINTE-MENEHOULD_1940 .
 
 obaData:ComplexChangeBasedOn_Change841APT_1870841CAVAILLON_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_844ORANGE_1870 , obaData:ComplexChangeBasedOn_Change841APT_1870841CAVAILLON_1927 .
 
 obaData:Disparition_KREIS_FORBACHKREIS_FORBACH_1871
@@ -927,11 +927,11 @@ obaData:99MEURTHE_1870
         hht:goesThrough  obaData:Disparition_99MEURTHE_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_785MANTES_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_785MANTES_1870 , obaData:ComplexChangeBasedOn_Disparition_786ETAMPES_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_885REMIREMONT_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_884MIRECOURT_1870 , obaData:ComplexChangeBasedOn_Disparition_885REMIREMONT_1870 .
 
 obaData:651ARGELES_1870
@@ -951,7 +951,7 @@ obaData:742BONNEVILLE_1927
         hht:hasNextVersion  obaData:742BONNEVILLE_1934 .
 
 obaData:ComplexChangeBasedOn_Change88VOSGES_187088VOSGES_1872
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change67BAS-RHIN_187067BAS-RHIN_ALLEMAGNE_1872 , obaData:ComplexChangeBasedOn_Change88VOSGES_187088VOSGES_1872 .
 
 obaData:224SAINT-BRIEUC_1927
@@ -967,7 +967,7 @@ obaData:579METZ_1870  hht:hasNextVersion
                 obaData:579METZ-VILLE_1919 .
 
 obaData:ComplexChangeBasedOn_Disparition_495BAUGE_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_495BAUGE_1870 .
 
 obaData:Apparition_KREIS_BOLCHENKREIS_BOLCHEN_1871
@@ -1013,7 +1013,7 @@ obaData:Change892AVALLON_1870892AVALLON_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_895TONNERRE_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_714LOUHANS_1906
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_714LOUHANS_1906 .
 
 obaData:784VERSAILLES_1927
@@ -1025,7 +1025,7 @@ obaData:Apparition_KREIS_DIEDENHOFEN-O.KREIS_DIEDENHOFEN-O._1901
         hht:isPartOf  obaData:ComplexChangeBasedOn_Apparition_KREIS_DIEDENHOFEN-E.KREIS_DIEDENHOFEN-E._1901 , obaData:ComplexChangeBasedOn_Apparition_KREIS_DIEDENHOFEN-O.KREIS_DIEDENHOFEN-O._1901 , obaData:ComplexChangeBasedOn_Disparition_KREIS_DIEDENHOFENKREIS_DIEDENHOFEN_1871 .
 
 obaData:ComplexChangeBasedOn_Disparition_446PAIMBOEUF_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_446PAIMBOEUF_1870 , obaData:ComplexChangeBasedOn_Change441CHATEAUBRIANT_1870441CHATEAUBRIANT_1927 .
 
 obaData:261DIE_1870  hht:goesThrough  obaData:Change261DIE_1870261DIE_1914 ;
@@ -1053,7 +1053,7 @@ obaData:Disparition_KREIS_ERSTEINKREIS_ERSTEIN_1873
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_KREIS_ERSTEINKREIS_ERSTEIN_1873 , obaData:ComplexChangeBasedOn_Apparition_671ERSTEIN_1919 .
 
 obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1924744THONON-LES-BAINS_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1924744THONON-LES-BAINS_1927 , obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1924742BONNEVILLE_1927 .
 
 obaData:381GRENOBLE_1930
@@ -1066,7 +1066,7 @@ obaData:ComplexChangeBasedOn_Disparition_483MARVEJOLS_1870
 obaData:811ALBI_1927  hht:emergesFrom  obaData:Change811ALBI_1870811ALBI_1927 .
 
 obaData:ComplexChangeBasedOn_Change663PRADES_1870663PRADES_1937
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change662PERPIGNAN_1870662PERPIGNAN_1937 , obaData:ComplexChangeBasedOn_Change663PRADES_1870663PRADES_1937 .
 
 obaData:Apparition_543NANCY_1871
@@ -1122,7 +1122,7 @@ obaData:Change362CHATEAUROUX_1870362CHATEAUROUX_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_364ISSOUDUN_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870
-        rdf:type    hht:Restructuration , hht:CompositeChange , hht:DerivationChange ;
+        rdf:type    hht:Redistribution , hht:CompositeChange , hht:DerivationChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 .
 
 obaData:Change723LE_MANS_1870723LE_MANS_1927
@@ -1164,7 +1164,7 @@ obaData:741ANNECY_1934
         hht:emergesFrom  obaData:Change741ANNECY_1927741ANNECY_1934 .
 
 obaData:ComplexChangeBasedOn_Disparition_844ORANGE_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_844ORANGE_1870 , obaData:ComplexChangeBasedOn_Change841APT_1870841CAVAILLON_1927 .
 
 obaData:Change383VIENNE_1870383VIENNE_1930
@@ -1181,7 +1181,7 @@ obaData:052GAP_1870  hht:goesThrough  obaData:Change052GAP_1870052GAP_1927 ;
         hht:hasNextVersion  obaData:052GAP_1927 .
 
 obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1873213SEMUR-EN-AUXOIS_1924
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1873213SEMUR-EN-AUXOIS_1924 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1870211BEAUNE_1924 .
 
 obaData:495BAUGE_1870
@@ -1194,11 +1194,11 @@ obaData:672HAGUENAU_1919
         hht:emergesFrom  obaData:Apparition_672HAGUENAU_1919 .
 
 obaData:ComplexChangeBasedOn_Change551BAR-LE-DUC_1870551BAR-LE-DUC_1878
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change552COMMERCY_1870552COMMERCY_1878 , obaData:ComplexChangeBasedOn_Change551BAR-LE-DUC_1870551BAR-LE-DUC_1878 .
 
 obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1934744THONON-LES-BAINS_1940
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1934744THONON-LES-BAINS_1940 , obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1934742BONNEVILLE_1940 .
 
 obaData:Change883SAINT-DIE_1870883SAINT-DIE_1872
@@ -1280,11 +1280,11 @@ obaData:Change411BLOIS_1870411BLOIS_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_413ROMORANTIN_1870 .
 
 obaData:ComplexChangeBasedOn_Change224SAINT-BRIEUC_1870224SAINT-BRIEUC_1875
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change221DINAN_1870221DINAN_1875 , obaData:ComplexChangeBasedOn_Change224SAINT-BRIEUC_1870224SAINT-BRIEUC_1875 .
 
 obaData:ComplexChangeBasedOn_Change211BEAUNE_1870211BEAUNE_1924
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1873213SEMUR-EN-AUXOIS_1924 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1870211BEAUNE_1924 .
 
 obaData:57MOSELLE_1920
@@ -1354,7 +1354,7 @@ obaData:Change604SENLIS_1870604SENLIS_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_602CLERMONT_1870 .
 
 obaData:ComplexChangeBasedOn_Change662PERPIGNAN_1870662PERPIGNAN_1937
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change662PERPIGNAN_1870662PERPIGNAN_1937 , obaData:ComplexChangeBasedOn_Change663PRADES_1870663PRADES_1937 .
 
 obaData:Change543NANCY_1871543NANCY_1927
@@ -1406,7 +1406,7 @@ obaData:ComplexChangeBasedOn_Apparition_KREIS_DIEDENHOFENKREIS_DIEDENHOFEN_1871
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_LANDKREIS_METZLANDKREIS_METZ_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_DIEDENHOFENKREIS_DIEDENHOFEN_1871 , obaData:ComplexChangeBasedOn_Apparition_541BRIEY_1871 , obaData:ComplexChangeBasedOn_Disparition_570BRIEY_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_104ARCIS-SUR-AUBE_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_104ARCIS-SUR-AUBE_1870 , obaData:ComplexChangeBasedOn_Disparition_105BAR-SUR-SEINE_1887 .
 
 obaData:213SEMUR-EN-AUXOIS_1870
@@ -1528,7 +1528,7 @@ obaData:213MONTBARD_1927
         hht:emergesFrom  obaData:Change213SEMUR-EN-AUXOIS_1924213MONTBARD_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_764NEUFCHATEL_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_764NEUFCHATEL_1870 , obaData:ComplexChangeBasedOn_Disparition_765YVETOT_1870 .
 
 obaData:Disparition_245RIBERAC_1870
@@ -1551,7 +1551,7 @@ obaData:Disparition_613MORTAGNE-AU-PERCHE_1924
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_614DOMFRONT_1870 , obaData:ComplexChangeBasedOn_Disparition_613MORTAGNE-AU-PERCHE_1924 .
 
 obaData:ComplexChangeBasedOn_Disparition_602CLERMONT_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_602CLERMONT_1870 .
 
 obaData:503COUTANCES_1870
@@ -1563,7 +1563,7 @@ obaData:ComplexChangeBasedOn_Disparition_384SAINT-MARCELLIN_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_384SAINT-MARCELLIN_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_284NOGENT-LE-ROTROU_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_284NOGENT-LE-ROTROU_1870 .
 
 obaData:714LOUHANS_1906
@@ -1591,7 +1591,7 @@ obaData:101BAR-SUR-AUBE_1870
         hht:hasNextVersion  obaData:101BAR-SUR-AUBE_1927 .
 
 obaData:ComplexChangeBasedOn_Change67BAS-RHIN_187067BAS-RHIN_ALLEMAGNE_1872
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change88VOSGES_187088VOSGES_1872 , obaData:ComplexChangeBasedOn_Change67BAS-RHIN_187067BAS-RHIN_ALLEMAGNE_1872 .
 
 obaData:Disparition_474NERAC_1870
@@ -1612,7 +1612,7 @@ obaData:604SENLIS_1927
         hht:emergesFrom  obaData:Change604SENLIS_1870604SENLIS_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_99MEURTHE_1870
-        rdf:type    hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_54MEURTHE-ET-MOSELLE_1871 , obaData:ComplexChangeBasedOn_Disparition_99MEURTHE_1870 .
 
 obaData:831DRAGUIGNAN_1927
@@ -1661,7 +1661,7 @@ obaData:ComplexChangeBasedOn_Disparition_895TONNERRE_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_895TONNERRE_1870 .
 
 obaData:ComplexChangeBasedOn_Change021CHATEAU-THIERRY_1870021CHATEAU-THIERRY_1925
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change024SOISSONS_1870024SOISSONS_1925 , obaData:ComplexChangeBasedOn_Change021CHATEAU-THIERRY_1870021CHATEAU-THIERRY_1925 .
 
 obaData:453PITHIVIERS_1870
@@ -1705,7 +1705,7 @@ obaData:Disparition_KREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1873
         hht:before  obaData:KREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1873 .
 
 obaData:ComplexChangeBasedOn_Change753SCEAUX_1870753SCEAUX_1894
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change753SCEAUX_1870753SCEAUX_1894 , obaData:ComplexChangeBasedOn_Change752SAINT-DENIS_1870752SAINT-DENIS_1894 .
 
 obaData:Disparition_991LUNEVILLE_1870
@@ -1714,7 +1714,7 @@ obaData:Disparition_991LUNEVILLE_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 .
 
 obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871
-        rdf:type    hht:CompositeChange , hht:Restructuration , hht:DerivationChange ;
+        rdf:type    hht:CompositeChange , hht:Redistribution , hht:DerivationChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 .
 
 obaData:Disparition_176MARENNES_1870
@@ -1808,7 +1808,7 @@ obaData:Change122RODEZ_1870122RODEZ_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_125SAINT-AFFRIQUE_1870 , obaData:ComplexChangeBasedOn_Disparition_124ESPALION_1870 .
 
 obaData:ComplexChangeBasedOn_ChangeKREIS_ERSTEINKREIS_ERSTEIN_1871KREIS_ERSTEINKREIS_ERSTEIN_1873
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_ChangeKREIS_ERSTEINKREIS_ERSTEIN_1871KREIS_ERSTEINKREIS_ERSTEIN_1873 , obaData:ComplexChangeBasedOn_ChangeKREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1871KREIS_SCHLETTSTADTKREIS_SCHLETTSTADT_1873 .
 
 obaData:142CAEN_1927  hht:emergesFrom  obaData:Change142CAEN_1870142CAEN_1927 .
@@ -1940,7 +1940,7 @@ obaData:ComplexChangeBasedOn_Disparition_193USSEL_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_193USSEL_1870 .
 
 obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871
-        rdf:type    hht:CompositeChange , hht:Restructuration , hht:DerivationChange ;
+        rdf:type    hht:CompositeChange , hht:Redistribution , hht:DerivationChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 .
 
 obaData:613MORTAGNE-AU-PERCHE_1924
@@ -2012,7 +2012,7 @@ obaData:281CHARTRES_1927
         hht:emergesFrom  obaData:Change281CHARTRES_1870281CHARTRES_1927 .
 
 obaData:ComplexChangeBasedOn_Change292CHATEAULIN_1870292CHATEAULIN_1925
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change294QUIMPER_1870294QUIMPER_1925 , obaData:ComplexChangeBasedOn_Change292CHATEAULIN_1870292CHATEAULIN_1925 .
 
 obaData:882NEUFCHATEAU_1870
@@ -2048,7 +2048,7 @@ obaData:521CHAUMONT_1926
         hht:hasNextVersion  obaData:521CHAUMONT_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_053EMBRUN_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_053EMBRUN_1870 .
 
 obaData:Change741ANNECY_1927741ANNECY_1934
@@ -2094,7 +2094,7 @@ obaData:Change641BAYONNE_1870641BAYONNE_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_644MAULEON_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_454GIEN_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_454GIEN_1870 , obaData:ComplexChangeBasedOn_Disparition_453PITHIVIERS_1870 .
 
 obaData:ComplexChangeBasedOn_Apparition_673MOLSHEIM_1919
@@ -2152,11 +2152,11 @@ obaData:Change732CHAMBERY_1870732CHAMBERY_1876
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change733SAINT-JEAN-DE-MAURIENNE_1870733SAINT-JEAN-DE-MAURIENNE_1876 , obaData:ComplexChangeBasedOn_Change732CHAMBERY_1870732CHAMBERY_1876 .
 
 obaData:ComplexChangeBasedOn_Change024SOISSONS_1870024SOISSONS_1925
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change024SOISSONS_1870024SOISSONS_1925 , obaData:ComplexChangeBasedOn_Change021CHATEAU-THIERRY_1870021CHATEAU-THIERRY_1925 .
 
 obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870
-        rdf:type    hht:CompositeChange , hht:DerivationChange , hht:Restructuration ;
+        rdf:type    hht:CompositeChange , hht:DerivationChange , hht:Redistribution ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 .
 
 obaData:703GRAY_1870  hht:goesThrough  obaData:Disparition_703GRAY_1870 .
@@ -2263,11 +2263,11 @@ obaData:673MOLSHEIM_1919
         hht:emergesFrom  obaData:Apparition_673MOLSHEIM_1919 .
 
 obaData:ComplexChangeBasedOn_Change262NYONS_1870262NYONS_1914
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change262NYONS_1870262NYONS_1914 , obaData:ComplexChangeBasedOn_Change261DIE_1870261DIE_1914 .
 
 obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1934742BONNEVILLE_1940
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1934742BONNEVILLE_1940 , obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1934744THONON-LES-BAINS_1940 .
 
 obaData:Disparition_495BAUGE_1870
@@ -2315,15 +2315,15 @@ obaData:Change501AVRANCHES_1870501AVRANCHES_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870 , obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927 , obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870 .
 
 obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1924742BONNEVILLE_1927
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1924744THONON-LES-BAINS_1927 , obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1924742BONNEVILLE_1927 .
 
 obaData:ComplexChangeBasedOn_Change202BASTIA_1870202BASTIA_1875
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change203CORTE_1870203CORTE_1875 , obaData:ComplexChangeBasedOn_Change202BASTIA_1870202BASTIA_1875 .
 
 obaData:ComplexChangeBasedOn_Disparition_092PAMIERS_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_092PAMIERS_1870 .
 
 obaData:Change452ORLEANS_1870452ORLEANS_1927
@@ -2373,7 +2373,7 @@ obaData:394POLIGNY_1870
         hht:goesThrough  obaData:Disparition_394POLIGNY_1870 .
 
 obaData:ComplexChangeBasedOn_Change554MONTMEDY_1870554MONTMEDY_1913
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change554MONTMEDY_1870554MONTMEDY_1913 , obaData:ComplexChangeBasedOn_Change553VERDUN_1870553VERDUN_1913 .
 
 obaData:Disparition_764NEUFCHATEL_1870
@@ -2382,7 +2382,7 @@ obaData:Disparition_764NEUFCHATEL_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_765YVETOT_1870 , obaData:ComplexChangeBasedOn_Disparition_764NEUFCHATEL_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_774FONTAINEBLEAU_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_774FONTAINEBLEAU_1870 , obaData:ComplexChangeBasedOn_Disparition_776COULOMMIERS_1870 .
 
 obaData:154MURAT_1870
@@ -2445,7 +2445,7 @@ obaData:Change642OLORON-SAINTE-MARIE_1870642OLORON-SAINTE-MARIE_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_645ORTHEZ_1870 , obaData:ComplexChangeBasedOn_Disparition_644MAULEON_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870 , obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927 , obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_083SEDAN_1870
@@ -2473,11 +2473,11 @@ obaData:502CHERBOURG_1927
         hht:emergesFrom  obaData:Change502CHERBOURG_1870502CHERBOURG_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_765YVETOT_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_765YVETOT_1870 , obaData:ComplexChangeBasedOn_Disparition_764NEUFCHATEL_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_474NERAC_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_474NERAC_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_356VITRE_1870
@@ -2505,11 +2505,11 @@ obaData:ComplexChangeBasedOn_Disparition_114CASTELNAUDARY_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_114CASTELNAUDARY_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_894JOIGNY_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_894JOIGNY_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_124ESPALION_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_125SAINT-AFFRIQUE_1870 , obaData:ComplexChangeBasedOn_Disparition_124ESPALION_1870 .
 
 obaData:Disparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871
@@ -2562,7 +2562,7 @@ obaData:Apparition_KREIS_ZABERNKREIS_ZABERN_1871
         hht:after  obaData:KREIS_ZABERNKREIS_ZABERN_1871 .
 
 obaData:ComplexChangeBasedOn_Change522LANGRES_1870522LANGRES_1926
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change522LANGRES_1870522LANGRES_1926 , obaData:ComplexChangeBasedOn_Change521CHAUMONT_1870521CHAUMONT_1926 .
 
 obaData:Disparition_355MONTFORT_1870
@@ -2605,7 +2605,7 @@ obaData:101BAR-SUR-AUBE_1927
         hht:emergesFrom  obaData:Change101BAR-SUR-AUBE_1870101BAR-SUR-AUBE_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_645ORTHEZ_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_644MAULEON_1870 , obaData:ComplexChangeBasedOn_Disparition_645ORTHEZ_1870 .
 
 obaData:Apparition_KREIS_WEISSENBURGKREIS_WEISSENBURG_1871
@@ -2623,7 +2623,7 @@ obaData:ComplexChangeBasedOn_Disparition_687BELFORT_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_901BELFORT_1871 , obaData:ComplexChangeBasedOn_Disparition_687BELFORT_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_THANNKREIS_THANN_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_ALTKIRCHKREIS_ALTKIRCH_1871 .
 
 obaData:ComplexChangeBasedOn_Disparition_614DOMFRONT_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_613MORTAGNE-AU-PERCHE_1924 , obaData:ComplexChangeBasedOn_Disparition_614DOMFRONT_1870 .
 
 obaData:Disparition_597HAZEBROUCK_1870
@@ -2687,7 +2687,7 @@ obaData:Change772MELUN_1870772MELUN_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_776COULOMMIERS_1870 , obaData:ComplexChangeBasedOn_Disparition_774FONTAINEBLEAU_1870 .
 
 obaData:ComplexChangeBasedOn_Change221DINAN_1870221DINAN_1875
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change224SAINT-BRIEUC_1870224SAINT-BRIEUC_1875 , obaData:ComplexChangeBasedOn_Change221DINAN_1870221DINAN_1875 .
 
 obaData:211BEAUNE_1932
@@ -2788,7 +2788,7 @@ obaData:744THONON-LES-BAINS_1924
         hht:hasNextVersion  obaData:744THONON-LES-BAINS_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_564PLOERMEL_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_564PLOERMEL_1870 .
 
 obaData:862MONTMORILLON_1870
@@ -2819,7 +2819,7 @@ obaData:614DOMFRONT_1870
         hht:goesThrough  obaData:Disparition_614DOMFRONT_1870 .
 
 obaData:ComplexChangeBasedOn_Change082RETHEL_1925082RETHEL_1930
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change082RETHEL_1925082RETHEL_1930 , obaData:ComplexChangeBasedOn_Change081MEZIERES_1927081MEZIERES_1930 .
 
 obaData:613MORTAGNE_1870
@@ -2827,7 +2827,7 @@ obaData:613MORTAGNE_1870
         hht:hasNextVersion  obaData:613MORTAGNE-AU-PERCHE_1924 .
 
 obaData:ComplexChangeBasedOn_Change105BAR-SUR-SEINE_1870105BAR-SUR-SEINE_1887
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change105BAR-SUR-SEINE_1870105BAR-SUR-SEINE_1887 , obaData:ComplexChangeBasedOn_Change103TROYES_1870103TROYES_1887 .
 
 obaData:781CORBEIL_1870
@@ -2866,7 +2866,7 @@ obaData:Change553VERDUN_1870553VERDUN_1913
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change553VERDUN_1870553VERDUN_1913 , obaData:ComplexChangeBasedOn_Change554MONTMEDY_1870554MONTMEDY_1913 .
 
 obaData:ComplexChangeBasedOn_Disparition_125SAINT-AFFRIQUE_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_124ESPALION_1870 , obaData:ComplexChangeBasedOn_Disparition_125SAINT-AFFRIQUE_1870 .
 
 obaData:Disparition_KREIS_SAARBURGKREIS_SAARBURG_1871
@@ -2924,7 +2924,7 @@ obaData:Change793PARTHENAY_1870793PARTHENAY_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_791BRESSUIRE_1870 .
 
 obaData:ComplexChangeBasedOn_Change212DIJON_1870212DIJON_1932
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change212DIJON_1870212DIJON_1932 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1924211BEAUNE_1932 .
 
 obaData:543NANCY_1871
@@ -2945,7 +2945,7 @@ obaData:081MEZIERES_1927
         hht:hasNextVersion  obaData:081MEZIERES_1930 .
 
 obaData:ComplexChangeBasedOn_Change081MEZIERES_1927081MEZIERES_1930
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change081MEZIERES_1927081MEZIERES_1930 , obaData:ComplexChangeBasedOn_Change082RETHEL_1925082RETHEL_1930 .
 
 obaData:Change131AIX_1870131AIX-EN-PROVENCE_1933
@@ -2965,7 +2965,7 @@ obaData:Change191BRIVE_1870191BRIVE-LA-GAILLARDE_1930
         hht:before  obaData:191BRIVE_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_264MONTELIMAR_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_264MONTELIMAR_1870 .
 
 obaData:612ARGENTAN_1927
@@ -2992,11 +2992,11 @@ obaData:Change504SAINT-LO_1870504SAINT-LO_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_506VALOGNES_1870 , obaData:ComplexChangeBasedOn_Disparition_505MORTAIN_1870 , obaData:ComplexChangeBasedOn_Change504SAINT-LO_1870504SAINT-LO_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_453PITHIVIERS_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_453PITHIVIERS_1870 , obaData:ComplexChangeBasedOn_Disparition_454GIEN_1870 .
 
 obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871
-        rdf:type    hht:CompositeChange , hht:DerivationChange , hht:Restructuration ;
+        rdf:type    hht:CompositeChange , hht:DerivationChange , hht:Redistribution ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 .
 
 obaData:882NEUFCHATEAU_1927
@@ -3050,7 +3050,7 @@ obaData:626SAINT-POL_1870
         hht:goesThrough  obaData:Disparition_626SAINT-POL_1870 .
 
 obaData:ComplexChangeBasedOn_Change294QUIMPER_1870294QUIMPER_1925
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change292CHATEAULIN_1870292CHATEAULIN_1925 , obaData:ComplexChangeBasedOn_Change294QUIMPER_1870294QUIMPER_1925 .
 
 obaData:ComplexChangeBasedOn_Disparition_085ROCROI_1870
@@ -3077,7 +3077,7 @@ obaData:Disparition_884MIRECOURT_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_885REMIREMONT_1870 , obaData:ComplexChangeBasedOn_Disparition_884MIRECOURT_1870 .
 
 obaData:ComplexChangeBasedOn_Change421MONTBRISON_1870421MONTBRISON_1907
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change421MONTBRISON_1870421MONTBRISON_1907 , obaData:ComplexChangeBasedOn_Change422ROANNE_1870422ROANNE_1907 .
 
 obaData:Change443SAINT-NAZAIRE_1870443SAINT-NAZAIRE_1927
@@ -3100,7 +3100,7 @@ obaData:Change432LE_PUY_1870432LE_PUY_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_433YSSINGEAUX_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870
-        rdf:type    hht:Restructuration , hht:DerivationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:DerivationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 .
 
 obaData:687BELFORT_1870
@@ -3240,7 +3240,7 @@ obaData:Change552COMMERCY_1870552COMMERCY_1878
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change552COMMERCY_1870552COMMERCY_1878 , obaData:ComplexChangeBasedOn_Change551BAR-LE-DUC_1870551BAR-LE-DUC_1878 .
 
 obaData:ComplexChangeBasedOn_Disparition_234BOUSSAC_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_233BOURGANEUF_1870 , obaData:ComplexChangeBasedOn_Disparition_234BOUSSAC_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_325LOMBEZ_1870
@@ -3333,7 +3333,7 @@ obaData:Disparition_992NANCY_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 .
 
 obaData:ComplexChangeBasedOn_Disparition_584COSNE_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change581CHATEAU-CHINON_1870581CHATEAU-CHINON_1927 , obaData:ComplexChangeBasedOn_Disparition_584COSNE_1870 .
 
 obaData:Change084VOUZIERS_1870084VOUZIERS_1925
@@ -3371,7 +3371,7 @@ obaData:Disparition_805DOULLENS_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_805DOULLENS_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_164BARBEZIEUX_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_164BARBEZIEUX_1870 , obaData:ComplexChangeBasedOn_Disparition_165RUFFEC_1870 .
 
 obaData:103TROYES_1887
@@ -3514,7 +3514,7 @@ obaData:Change68HAUT-RHIN_187068HAUT-RHIN_ALLEMAGNE_1872
         hht:isPartOf  obaData:ComplexChangeBasedOn_Apparition_90TERRITOIRE-DE-BELFORT_1871 .
 
 obaData:ComplexChangeBasedOn_Change383VIENNE_1870383VIENNE_1930
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change381GRENOBLE_1927381GRENOBLE_1930 , obaData:ComplexChangeBasedOn_Change383VIENNE_1870383VIENNE_1930 .
 
 obaData:Apparition_686THANN_1919
@@ -3527,7 +3527,7 @@ obaData:105BAR-SUR-SEINE_1887
         hht:goesThrough  obaData:Disparition_105BAR-SUR-SEINE_1887 .
 
 obaData:ComplexChangeBasedOn_Apparition_54MEURTHE-ET-MOSELLE_1871
-        rdf:type    hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_54MEURTHE-ET-MOSELLE_1871 , obaData:ComplexChangeBasedOn_Disparition_99MEURTHE_1870 .
 
 obaData:Change521CHAUMONT_1870521CHAUMONT_1926
@@ -3724,7 +3724,7 @@ obaData:153SAINT-FLOUR_1927
         hht:emergesFrom  obaData:Change153SAINT-FLOUR_1870153SAINT-FLOUR_1927 .
 
 obaData:ComplexChangeBasedOn_Change211BEAUNE_1924211BEAUNE_1932
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change212DIJON_1870212DIJON_1932 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1924211BEAUNE_1932 .
 
 obaData:372TOURS_1927
@@ -3787,14 +3787,14 @@ obaData:Disparition_373LOCHES_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_373LOCHES_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_165RUFFEC_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_165RUFFEC_1870 , obaData:ComplexChangeBasedOn_Disparition_164BARBEZIEUX_1870 .
 
 obaData:781CORBEIL_1927
         hht:emergesFrom  obaData:Change781CORBEIL_1870781CORBEIL_1927 .
 
 obaData:ComplexChangeBasedOn_Change521CHAUMONT_1870521CHAUMONT_1926
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change521CHAUMONT_1870521CHAUMONT_1926 , obaData:ComplexChangeBasedOn_Change522LANGRES_1870522LANGRES_1926 .
 
 obaData:234BOUSSAC_1870
@@ -3829,11 +3829,11 @@ obaData:Change211BEAUNE_1870211BEAUNE_1924
         hht:isPartOf  obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1873213SEMUR-EN-AUXOIS_1924 , obaData:ComplexChangeBasedOn_Change211BEAUNE_1870211BEAUNE_1924 .
 
 obaData:ComplexChangeBasedOn_Change203CORTE_1870203CORTE_1875
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change203CORTE_1870203CORTE_1875 , obaData:ComplexChangeBasedOn_Change202BASTIA_1870202BASTIA_1875 .
 
 obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871
-        rdf:type    hht:Restructuration , hht:DerivationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:DerivationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 .
 
 obaData:Disparition_KREIS_WEISSENBURGKREIS_WEISSENBURG_1871
@@ -3900,7 +3900,7 @@ obaData:715MACON_1870
         hht:hasNextVersion  obaData:715MACON_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_613MORTAGNE-AU-PERCHE_1924
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_613MORTAGNE-AU-PERCHE_1924 , obaData:ComplexChangeBasedOn_Disparition_614DOMFRONT_1870 .
 
 obaData:611ALENCON_1870
@@ -3918,7 +3918,7 @@ obaData:ComplexChangeBasedOn_Apparition_574METZ-CAMPAGNE_1919
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_LANDKREIS_METZLANDKREIS_METZ_1871 , obaData:ComplexChangeBasedOn_Apparition_574METZ-CAMPAGNE_1919 .
 
 obaData:ComplexChangeBasedOn_Disparition_254BAUME-LES-DAMES_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_254BAUME-LES-DAMES_1870 .
 
 obaData:Disparition_053EMBRUN_1870
@@ -3949,7 +3949,7 @@ obaData:ComplexChangeBasedOn_Apparition_575SARREBOURG_1919
         owl:sameAs  obaData:ComplexChangeBasedOn_Apparition_575SARREBOURG_1919 , obaData:ComplexChangeBasedOn_Disparition_KREIS_SAARBURGKREIS_SAARBURG_1871 .
 
 obaData:ComplexChangeBasedOn_Change441CHATEAUBRIANT_1870441CHATEAUBRIANT_1927
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change441CHATEAUBRIANT_1870441CHATEAUBRIANT_1927 , obaData:ComplexChangeBasedOn_Disparition_446PAIMBOEUF_1870 .
 
 obaData:402MONT-DE-MARSAN_1927
@@ -3974,7 +3974,7 @@ obaData:Disparition_225LOUDEAC_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_225LOUDEAC_1870 .
 
 obaData:ComplexChangeBasedOn_Change581CHATEAU-CHINON_1870581CHATEAU-CHINON_1927
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_584COSNE_1870 , obaData:ComplexChangeBasedOn_Change581CHATEAU-CHINON_1870581CHATEAU-CHINON_1927 .
 
 obaData:782PONTOISE_1870
@@ -4069,11 +4069,11 @@ obaData:192TULLE_1927
         hht:emergesFrom  obaData:Change192TULLE_1870192TULLE_1927 .
 
 obaData:ComplexChangeBasedOn_Change214CHATILLON-SUR-SEINE_1870214CHATILLON-SUR-SEINE_1873
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change214CHATILLON-SUR-SEINE_1870214CHATILLON-SUR-SEINE_1873 , obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1870213SEMUR-EN-AUXOIS_1873 .
 
 obaData:ComplexChangeBasedOn_Disparition_233BOURGANEUF_1870
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_233BOURGANEUF_1870 , obaData:ComplexChangeBasedOn_Disparition_234BOUSSAC_1870 .
 
 obaData:Apparition_685RIBEAUVILLE_1919
@@ -4159,7 +4159,7 @@ obaData:212DIJON_1932
         hht:emergesFrom  obaData:Change212DIJON_1870212DIJON_1932 .
 
 obaData:ComplexChangeBasedOn_Change082RETHEL_1870082RETHEL_1925
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change084VOUZIERS_1870084VOUZIERS_1925 , obaData:ComplexChangeBasedOn_Change082RETHEL_1870082RETHEL_1925 .
 
 obaData:ComplexChangeBasedOn_Disparition_154MURAT_1870
@@ -4167,7 +4167,7 @@ obaData:ComplexChangeBasedOn_Disparition_154MURAT_1870
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_154MURAT_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_034GANNAT_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_034GANNAT_1870 .
 
 obaData:Disparition_554MONTMEDY_1913
@@ -4205,7 +4205,7 @@ obaData:893SENS_1870  hht:goesThrough  obaData:Change893SENS_1870893SENS_1927 ;
         hht:hasNextVersion  obaData:893SENS_1927 .
 
 obaData:ComplexChangeBasedOn_Disparition_786ETAMPES_1870
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_785MANTES_1870 , obaData:ComplexChangeBasedOn_Disparition_786ETAMPES_1870 .
 
 obaData:Disparition_184SANCERRE_1870
@@ -4267,7 +4267,7 @@ obaData:Change635THIERS_1870635THIERS_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_631AMBERT_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870
-        rdf:type    hht:DerivationChange , hht:CompositeChange , hht:Restructuration ;
+        rdf:type    hht:DerivationChange , hht:CompositeChange , hht:Redistribution ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_992NANCY_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_CHATEAU-SALINSKREIS_CHATEAU-SALINS_1871 , obaData:ComplexChangeBasedOn_Apparition_543NANCY_1871 , obaData:ComplexChangeBasedOn_Disparition_991LUNEVILLE_1870 , obaData:ComplexChangeBasedOn_Disparition_993CHATEAU-SALINS_1870 , obaData:ComplexChangeBasedOn_Apparition_KREIS_SAARBURGKREIS_SAARBURG_1871 , obaData:ComplexChangeBasedOn_Apparition_542LUNEVILLE_1871 , obaData:ComplexChangeBasedOn_Disparition_994SARREBOURG_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_814LAVAUR_1870
@@ -4343,7 +4343,7 @@ obaData:723LE_MANS_1870
         hht:hasNextVersion  obaData:723LE_MANS_1927 .
 
 obaData:ComplexChangeBasedOn_Change714LOUHANS_1870714LOUHANS_1906
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change714LOUHANS_1870714LOUHANS_1906 , obaData:ComplexChangeBasedOn_Change712CHALON-SUR-SAONE_1870712CHALON-SUR-SAONE_1906 .
 
 obaData:413ROMORANTIN_1870
@@ -4382,11 +4382,11 @@ obaData:Change603COMPIEGNE_1870603COMPIEGNE_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_602CLERMONT_1870 .
 
 obaData:ComplexChangeBasedOn_Change712CHALON-SUR-SAONE_1870712CHALON-SUR-SAONE_1906
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change712CHALON-SUR-SAONE_1870712CHALON-SUR-SAONE_1906 , obaData:ComplexChangeBasedOn_Change714LOUHANS_1870714LOUHANS_1906 .
 
 obaData:ComplexChangeBasedOn_Change732CHAMBERY_1870732CHAMBERY_1876
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change732CHAMBERY_1870732CHAMBERY_1876 , obaData:ComplexChangeBasedOn_Change733SAINT-JEAN-DE-MAURIENNE_1870733SAINT-JEAN-DE-MAURIENNE_1876 .
 
 obaData:Disparition_444ANCENIS_1870
@@ -4395,7 +4395,7 @@ obaData:Disparition_444ANCENIS_1870
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_444ANCENIS_1870 .
 
 obaData:ComplexChangeBasedOn_Change422ROANNE_1870422ROANNE_1907
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change421MONTBRISON_1870421MONTBRISON_1907 , obaData:ComplexChangeBasedOn_Change422ROANNE_1870422ROANNE_1907 .
 
 obaData:574METZ-CAMPAGNE_1919
@@ -4445,7 +4445,7 @@ obaData:Change281CHARTRES_1870281CHARTRES_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_284NOGENT-LE-ROTROU_1870 .
 
 obaData:ComplexChangeBasedOn_Change733SAINT-JEAN-DE-MAURIENNE_1870733SAINT-JEAN-DE-MAURIENNE_1876
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change732CHAMBERY_1870732CHAMBERY_1876 , obaData:ComplexChangeBasedOn_Change733SAINT-JEAN-DE-MAURIENNE_1870733SAINT-JEAN-DE-MAURIENNE_1876 .
 
 obaData:ComplexChangeBasedOn_Disparition_214CHATILLON-SUR-SEINE_1873
@@ -4481,7 +4481,7 @@ obaData:Apparition_672HAGUENAU_1919
         hht:isPartOf  obaData:ComplexChangeBasedOn_Apparition_672HAGUENAU_1919 , obaData:ComplexChangeBasedOn_Disparition_KREIS_HAGUENAUKREIS_HAGUENAU_1871 .
 
 obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1891744THONON-LES-BAINS_1924
-        rdf:type    hht:ContinuationChange , hht:Restructuration , hht:CompositeChange ;
+        rdf:type    hht:ContinuationChange , hht:Redistribution , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change742BONNEVILLE_1870742BONNEVILLE_1924 , obaData:ComplexChangeBasedOn_Change744THONON-LES-BAINS_1891744THONON-LES-BAINS_1924 .
 
 obaData:685RIBEAUVILLE_1919
@@ -4495,11 +4495,11 @@ obaData:891AUXERRE_1927
         hht:emergesFrom  obaData:Change891AUXERRE_1870891AUXERRE_1927 .
 
 obaData:ComplexChangeBasedOn_Change261DIE_1870261DIE_1914
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change261DIE_1870261DIE_1914 , obaData:ComplexChangeBasedOn_Change262NYONS_1870262NYONS_1914 .
 
 obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1870213SEMUR-EN-AUXOIS_1873
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change214CHATILLON-SUR-SEINE_1870214CHATILLON-SUR-SEINE_1873 , obaData:ComplexChangeBasedOn_Change213SEMUR-EN-AUXOIS_1870213SEMUR-EN-AUXOIS_1873 .
 
 obaData:033LAPALISSE_1927
@@ -4565,7 +4565,7 @@ obaData:Change401DAX_1870401DAX_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_403SAINT-SEVER_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_105BAR-SUR-SEINE_1887
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Disparition_105BAR-SUR-SEINE_1887 , obaData:ComplexChangeBasedOn_Disparition_104ARCIS-SUR-AUBE_1870 .
 
 obaData:ComplexChangeBasedOn_Disparition_KREIS_MOLSHEIMKREIS_MOLSHEIM_1871
@@ -4750,7 +4750,7 @@ obaData:Change442NANTES_1870442NANTES_1927
         hht:isPartOf  obaData:ComplexChangeBasedOn_Disparition_444ANCENIS_1870 .
 
 obaData:ComplexChangeBasedOn_Change381GRENOBLE_1927381GRENOBLE_1930
-        rdf:type    hht:Restructuration , hht:ContinuationChange , hht:CompositeChange ;
+        rdf:type    hht:Redistribution , hht:ContinuationChange , hht:CompositeChange ;
         owl:sameAs  obaData:ComplexChangeBasedOn_Change381GRENOBLE_1927381GRENOBLE_1930 , obaData:ComplexChangeBasedOn_Change383VIENNE_1870383VIENNE_1930 .
 
 obaData:Change882NEUFCHATEAU_1870882NEUFCHATEAU_1927

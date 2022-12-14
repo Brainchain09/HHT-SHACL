@@ -1,0 +1,911 @@
+@prefix hht: <http://www.semanticweb.org/HHT_Ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#>
+
+
+hht:VersionRuleShape a sh:NodeShape ;
+	sh:targetClass hht:UnitVersion;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Trouver la version suivante";
+		sh:prefixes hht: ;
+		sh:order 1;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			CONSTRUCT {
+				$this hht:hasNextVersion ?nextVersion.
+			}
+			WHERE {
+				?unit hht:hasVersion $this.
+				$this hht:validityPeriod ?interval.
+				?interval time:hasEnd ?end.
+				?end time:inXSDgYear ?endTime.
+				?unit hht:hasVersion ?nextVersion.
+				?nextVersion hht:validityPeriod ?intervalV.
+				?intervalV time:hasBeginning ?begin.
+				?begin time:inXSDgYear ?beginTime.
+				FILTER NOT EXISTS {?nextVersion hht:isDeprecated True}.
+				FILTER NOT EXISTS {?intervalV time:hasEnd ?endV.
+									?interval time:hasBeginning ?endV}.
+				FILTER (?endTime <= ?beginTime)
+			} ORDER BY ?begin LIMIT 1
+			""" ;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Créer tous les changements simples";
+		sh:prefixes hht: ;
+		sh:order 2;
+		sh:prefixes time: ;
+		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			 CONSTRUCT {
+				$this hht:goesThrough ?change .
+				?change hht:before $this.
+				?nextVersion hht:emergesFrom ?change.
+				?change hht:after ?nextVersion.
+				?change a hht:FeatureChange.
+			}
+			WHERE {
+				$this a hht:UnitVersion.
+				$this hht:hasNextVersion ?nextVersion.
+				$this hht:validityPeriod ?i1.
+				?i1 time:hasEnd ?date.
+				?nextVersion hht:validityPeriod ?i2.
+				?i2 time:hasBeginning ?date.
+				FILTER NOT EXISTS {$this hht:isDeprecated True.}
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#Change", STRAFTER (STR($this),"data#"), STRAFTER (STR(?nextVersion),"data#"))) AS ?change).
+			}
+			"""
+	]; sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Créer tous les changements Apparition/Disparition pour les disparitions temporaires";
+		sh:prefixes hht: ;
+		sh:order 2;
+		sh:prefixes time: ;
+		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			 CONSTRUCT {
+				$this hht:goesThrough ?dis .
+				?dis hht:before $this.
+				?nextVersion hht:emergesFrom ?app.
+				?app hht:after ?nextVersion.
+				?dis a hht:FeatureChange.
+				?dis a hht:Disappearance.
+				?app a hht:FeatureChange.
+				?app a hht:Appearance.
+			}
+			WHERE {
+				$this a hht:UnitVersion.
+				FILTER NOT EXISTS {$this hht:isDeprecated True.}.
+				$this hht:hasNextVersion ?nextVersion.
+				$this hht:validityPeriod ?i1.
+				?i1 time:hasEnd ?date.
+				FILTER NOT EXISTS{?nextVersion hht:validityPeriod ?i2.
+				?i2 time:hasBeginning ?date2.}
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#TemporaryDisappearance", STRAFTER (STR($this),"data#"))) AS ?dis).
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#Reappearance", STRAFTER (STR(?nextVersion),"data#"))) AS ?app).
+			}
+			"""
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Créer tous les changements apparitions";
+		sh:prefixes hht: ;
+		sh:order 2;
+		sh:prefixes time: ;
+		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+			 CONSTRUCT {
+				$this hht:emergesFrom ?change.
+				?change hht:after $this.
+				?change a hht:FeatureChange.
+				?change a hht:Appearance.
+			}
+			WHERE {
+				$this a hht:UnitVersion.
+				FILTER NOT EXISTS {$this hht:isDeprecated True}.
+				?unit hht:hasVersion $this.
+				$this hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?start.
+				?start time:inXSDgYear ?startTime.
+				FILTER (?startTime > "2010"^^xsd:gYear)
+				FILTER NOT EXISTS {
+					?unit hht:hasVersion ?Version.
+					?Version hht:validityPeriod ?intervalV.
+					?intervalV time:hasBeginning ?begin.
+					?begin time:inXSDgYear ?beginTime.
+					FILTER NOT EXISTS {?Version hht:isDeprecated True}.
+					FILTER (?startTime > ?beginTime)
+				}
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#Apparition_", STRAFTER (STR($this),"data#"))) AS ?change).
+			}
+			"""
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Créer tous les changements Disappearance";
+		sh:prefixes hht: ;
+		sh:order 2;
+		sh:prefixes time: ;
+		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+			 CONSTRUCT {
+				$this hht:goesThrough ?change.
+				?change hht:before $this.
+				?change a hht:FeatureChange.
+				?change a hht:Disappearance.
+			}
+			WHERE {
+				$this a hht:UnitVersion.
+				FILTER NOT EXISTS {$this hht:isDeprecated True}.
+				?unit hht:hasVersion $this.
+				$this hht:validityPeriod ?interval.
+				?interval time:hasEnd ?end.
+				?end time:inXSDgYear ?endTime.
+				FILTER (?endTime < "2016"^^xsd:gYear ).
+				FILTER NOT EXISTS {$this hht:hasNextVersion ?version.}				
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#Disparition_", STRAFTER (STR($this),"data#"))) AS ?change).
+			}
+			"""
+	].
+
+hht:FeatureChangeRuleShape a sh:NodeShape ;
+	sh:targetClass hht:FeatureChange;
+	sh:order 3;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier Changements Noms";
+		sh:prefixes hht: ;
+		sh:order 4;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+
+			CONSTRUCT {
+				$this a hht:NameChange.
+			}
+			WHERE {
+				$this a hht:FeatureChange.
+				?avant hht:goesThrough $this.
+				?avant rdfs:label ?nomAvant.
+				?apres hht:emergesFrom $this.
+				?apres rdfs:label ?nomApres.
+				FILTER  (!regex(?nomAvant, ?nomApres))
+			}"""
+	];
+	 sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier Expansion";
+		sh:prefixes hht: ;
+		sh:order 4;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this a hht:Expansion.
+				$this a hht:GeometryChange.
+			}
+			WHERE {
+				$this a hht:FeatureChange.
+				FILTER NOT EXISTS {$this a hht:Appearance}.
+				FILTER NOT EXISTS {$this a hht:Disappearance}.
+				{SELECT (COUNT(DISTINCT ?unitAv) AS ?geomCardAvant) WHERE{
+					$this hht:before ?avantU.
+					?avantU hht:contains ?subAv.
+					?unitAv hht:hasVersion ?subAv.
+					?subAv hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+					
+				}}
+				{SELECT (COUNT(DISTINCT ?unitAp) AS ?geomCardApres) WHERE{
+					$this hht:after ?apresU.
+					?apresU hht:contains ?subAp.
+					?unitAp hht:hasVersion ?subAp.
+					?subAp hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+				}}
+				FILTER (?geomCardApres > ?geomCardAvant)
+				{SELECT (COUNT(DISTINCT ?unit) AS ?geomCardIntersect) WHERE{
+					$this hht:before ?avant.
+					?avant hht:contains ?subA.
+					?unit hht:hasVersion ?subA.
+      				?subA hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+      				FILTER EXISTS {?unit hht:hasVersion ?subB.
+        			$this hht:after ?apres.
+        			?apres hht:contains ?subB.
+					}
+				}}
+				FILTER (?geomCardIntersect = ?geomCardAvant)
+			}"""
+	];
+		 sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier Contraction";
+		sh:prefixes hht: ;
+		sh:prefixes time: ;
+		sh:order 4;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this a hht:Contraction.
+				$this a hht:GeometryChange.
+			}
+			WHERE {
+				$this a hht:FeatureChange.
+				FILTER NOT EXISTS {$this a hht:Appearance}.
+				FILTER NOT EXISTS {$this a hht:Disappearance}.
+				{SELECT (COUNT(DISTINCT ?unitAv) AS ?geomCardAvant) WHERE{
+					$this hht:before ?avantU.
+					?avantU hht:contains ?subAv.
+					?unitAv hht:hasVersion ?subAv.
+					?subAv hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+					
+				}}
+				{SELECT (COUNT(DISTINCT ?unitAp) AS ?geomCardApres) WHERE{
+					$this hht:after ?apresU.
+					?apresU hht:contains ?subAp.
+					?unitAp hht:hasVersion ?subAp.
+					?subAp hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+				}}
+				FILTER (?geomCardApres < ?geomCardAvant)
+				{SELECT (COUNT(DISTINCT ?unit) AS ?geomCardIntersect) WHERE{
+					$this hht:before ?avant.
+					?avant hht:contains ?subA.
+					?unit hht:hasVersion ?subA.
+      				?subA hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+      				FILTER EXISTS {?unit hht:hasVersion ?subB.
+        			$this hht:after ?apres.
+        			?apres hht:contains ?subB.
+					}}
+				}
+				FILTER (?geomCardIntersect = ?geomCardApres)
+			}"""
+	]; sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier Deformation";
+		sh:prefixes hht: ;
+		sh:order 4;
+		sh:prefixes time: ;
+					sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this a hht:Deformation.
+				$this a hht:GeometryChange.
+			}
+			WHERE {
+				$this a hht:FeatureChange.
+				FILTER NOT EXISTS {$this a hht:Appearance}.
+				FILTER NOT EXISTS {$this a hht:Disappearance}.
+				{SELECT (COUNT(DISTINCT ?unitAv) AS ?geomCardAvant) WHERE{
+					$this hht:before ?avantU.
+					?avantU hht:contains ?subAv.
+					?unitAv hht:hasVersion ?subAv.
+					?subAv hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+					
+				}}
+				{SELECT (COUNT(DISTINCT ?unitAp) AS ?geomCardApres) WHERE{
+					$this hht:after ?apresU.
+					?apresU hht:contains ?subAp.
+					?unitAp hht:hasVersion ?subAp.
+					?subAp hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+				}}
+				{SELECT (COUNT(DISTINCT ?unit) AS ?geomCardIntersect) WHERE{
+					$this hht:before ?avant.
+					?avant hht:contains ?subA.
+					?unit hht:hasVersion ?subA.
+      				?subA hht:isMemberOf ?level.
+					?level a hht:ElementaryLevelVersion.
+      				FILTER EXISTS {?unit hht:hasVersion ?subB.
+        			$this hht:after ?apres.
+        			?apres hht:contains ?subB.
+					}}
+				}
+				FILTER (?geomCardIntersect < ?geomCardApres)
+				FILTER (?geomCardIntersect < ?geomCardAvant)
+		}"""	
+	].
+
+
+
+hht:IncompleteGeometryDataChangeRule a sh:NodeShape ;
+	sh:targetClass hht:GeometryChange;
+	sh:order 5;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "";
+		sh:order 5;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this a hht:IncompleteGeometryChange.
+				$this hht:lacksInformationAbout ?subApres.
+			}
+			WHERE {
+				$this a hht:GeometryChange.
+				$this hht:before ?version.
+				?version hht:contains ?subApres.
+				?version hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?version hht:validityPeriod ?interval.
+				?interval time:hasEnd ?start.
+				FILTER NOT EXISTS {?change hht:after ?avant.
+				?avant hht:validityPeriod ?interval2.
+				?interval2 time:hasBeginning ?start.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level2.
+				?level2 a hht:ElementaryLevelVersion.
+				}
+			}""";
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
+		sh:order 5;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this a hht:IncompleteGeometryChange.
+				$this hht:lacksInformationAbout ?subAvant.
+			}
+			WHERE {
+				$this a hht:GeometryChange.
+				$this hht:after ?avant.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?avant hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?start.
+				FILTER NOT EXISTS {?change hht:before ?version.
+				?version hht:validityPeriod ?interval2.
+				?interval2 time:hasEnd ?start.
+				?version hht:contains ?subApres.
+				?version hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level2.
+				?level2 a hht:ElementaryLevelVersion.
+				}
+			}""";
+	].
+
+hht:nonAttachedChangeShape a sh:NodeShape;
+	sh:targetClass hht:FeatureChange ;
+	sh:property [
+		sh:path hht:isPartOf;
+		sh:maxCount 0;
+	].
+
+hht:AttachedChangeShape a sh:NodeShape;
+	sh:targetClass hht:FeatureChange ;
+	sh:property [
+		sh:path hht:isPartOf;
+		sh:minCount 1;
+	].
+
+hht:ComplexChangeMakerRuleShape a sh:NodeShape ;
+	sh:targetClass hht:GeometryChange;
+	sh:order 6;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
+		sh:order 6;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			
+			}
+			WHERE {
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#ComplexChangeBasedOn_", STRAFTER (STR($this),"data#"))) AS ?complexChange)
+				$this a hht:GeometryChange.
+				$this hht:after ?apres.
+				?apres hht:contains ?subApres.
+				?apres hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				$this hht:before ?avant.
+				FILTER NOT EXISTS {?avant hht:contains ?subB. ?subB hht:isMemberOf ?l.
+				?l a hht:ElementaryLevelVersion. ?unitApres hht:hasVersion ?subB.}
+				?unitApres hht:hasVersion ?versionAv.
+				?territory hht:contains ?versionAv.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:before ?territory.
+				?avant hht:validityPeriod ?interval.
+				?interval time:hasEnd ?start.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasEnd ?start.
+			}""";
+
+		sh:condition hht:nonAttachedChangeShape;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
+		sh:order 6;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			
+			}
+			WHERE {
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#ComplexChangeBasedOn_", STRAFTER (STR($this),"data#"))) AS ?complexChange)
+				$this a hht:GeometryChange.
+				$this hht:before ?avant.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitAvant hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				$this hht:after ?apres.
+				FILTER NOT EXISTS {?apres hht:contains ?subA. ?subA hht:isMemberOf ?l.
+					?l a hht:ElementaryLevelVersion. ?unitAvant hht:hasVersion ?subA.}
+				?unitAvant hht:hasVersion ?versionAp.
+				?territory hht:contains ?versionAp.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:after ?territory.
+				?apres hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?stop.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasBeginning ?stop.
+			}""";
+
+		  sh:condition hht:nonAttachedChangeShape;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
+		sh:order 7;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			
+			}
+			WHERE {
+				$this hht:isPartOf ?complexChange.
+				$this a hht:GeometryChange.
+				$this hht:after ?apres.
+				?apres hht:contains ?subApres.
+				?apres hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				$this hht:before ?avant.
+				FILTER NOT EXISTS {?avant hht:contains ?subB. ?subB hht:isMemberOf ?l.
+					?l a hht:ElementaryLevelVersion. ?unitApres hht:hasVersion ?subB.}
+				?unitApres hht:hasVersion ?versionAv.
+				?territory hht:contains ?versionAv.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:before ?territory.
+				?avant hht:validityPeriod ?interval.
+				?interval time:hasEnd ?start.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasEnd ?start.
+			}""";
+
+		sh:condition hht:AttachedChangeShape;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
+		sh:order 7;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			}
+			WHERE {
+				$this hht:isPartOf ?complexChange.
+				$this a hht:GeometryChange.
+				$this hht:before ?avant.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitAvant hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				$this hht:after ?apres.
+				FILTER NOT EXISTS {?apres hht:contains ?subA. ?subA hht:isMemberOf ?l.
+				?l a hht:ElementaryLevelVersion. ?unitAvant hht:hasVersion ?subA.}
+				?unitAvant hht:hasVersion ?versionAp.
+				?territory hht:contains ?versionAp.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:after ?territory.
+				?apres hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?stop.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasBeginning ?stop.
+			}""";
+
+		  sh:condition hht:AttachedChangeShape;
+	].
+
+hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
+	sh:targetClass hht:Disappearance;
+	sh:order 6;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les disparitions selon les territoires postérieurs";
+		sh:order 6;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			
+			}
+			WHERE {
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#ComplexChangeBasedOn_", STRAFTER (STR($this),"data#"))) AS ?complexChange)
+				$this a hht:Disappearance.
+				$this hht:before ?avant.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitAvant hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?unitAvant hht:hasVersion ?versionAp.
+				?territory hht:contains ?versionAp.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:after ?territory.
+				?avant hht:validityPeriod ?interval.
+				?interval time:hasEnd ?stop.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasBeginning ?stop.
+			}""";
+
+		  sh:condition hht:nonAttachedChangeShape;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
+		sh:order 7;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			}
+			WHERE {
+				$this hht:isPartOf ?complexChange.
+				$this a hht:Disappearance.
+				$this hht:before ?avant.
+				?avant hht:contains ?subAvant.
+				?avant hht:isMemberOf ?niveau.
+				?unitAvant hht:hasVersion ?subAvant.
+				?subAvant hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?unitAvant hht:hasVersion ?versionAp.
+				?territory hht:contains ?versionAp.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:after ?territory.
+				?avant hht:validityPeriod ?interval.
+				?interval time:hasEnd ?stop.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasBeginning ?stop.
+			}""";
+
+		  sh:condition hht:AttachedChangeShape;
+	].
+
+
+hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
+	sh:targetClass hht:Appearance;
+	sh:order 6;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les disparitions selon les territoires postérieurs";
+		sh:order 6;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			
+			}
+			WHERE {
+				BIND (URI(CONCAT("http://www.semanticweb.org/melodi/data#ComplexChangeBasedOn_", STRAFTER (STR($this),"data#"))) AS ?complexChange)
+				$this a hht:Appearance.
+				$this hht:after ?apres.
+				?apres hht:contains ?subApres.
+				?apres hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?unitApres hht:hasVersion ?versionAv.
+				?territory hht:contains ?versionAv.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:before ?territory.
+				?apres hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?start.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasEnd ?start.
+			}""";
+
+		  sh:condition hht:nonAttachedChangeShape;
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
+		sh:order 7;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			CONSTRUCT {
+				$this hht:isPartOf ?complexChange .
+				?complexChange a hht:CompositeChange.
+				?change hht:isPartOf ?complexChange.
+			}
+			WHERE {
+				$this hht:isPartOf ?complexChange.
+				$this a hht:Appearance.
+				$this hht:after ?apres.
+				?apres hht:contains ?subApres.
+				?apres hht:isMemberOf ?niveau.
+				?unitApres hht:hasVersion ?subApres.
+				?subApres hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?unitApres hht:hasVersion ?versionAv.
+				?territory hht:contains ?versionAv.
+				?territory hht:isMemberOf ?niveau.
+				?change hht:before ?territory.
+				?apres hht:validityPeriod ?interval.
+				?interval time:hasBeginning ?start.
+				?territory hht:validityPeriod ?interval2.
+				?interval2 time:hasEnd ?start.
+			}""";
+		  sh:condition hht:AttachedChangeShape;
+	].
+
+
+hht:ComplexChangeUnifierRuleShape a sh:NodeShape ;
+	sh:targetClass hht:FeatureChange;
+	sh:order 8;
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Rattacher les changements complexes pour ceux en ayant plusieurs";
+		sh:order 8;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?complexChange1 owl:sameAs ?complexChange2.
+			}
+			WHERE {
+				$this hht:isPartOf ?complexChange1.
+				$this hht:isPartOf ?complexChange2.
+			}"""
+		].
+
+hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
+	sh:targetClass hht:CompositeChange ;
+	sh:order 9;
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:order 9;
+		rdfs:label "Qualifier les Split";
+		sh:prefixes hht: ;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?this a hht:Split.
+			}
+			WHERE {
+				$this a hht:CompositeChange.
+				$this owl:sameAs ?this.
+				{SELECT (COUNT(DISTINCT ?unitB) AS ?cardB)WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:before ?before.
+					?unitB hht:hasVersion ?before.
+				}}
+				{SELECT (COUNT(DISTINCT ?unitA) AS ?cardA) WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:after ?after.
+					?unitA hht:hasVersion ?after.
+				}}
+				FILTER (?cardA>1)
+				FILTER (?cardB=1)
+							
+			}"""
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:order 9;
+		rdfs:label "Qualifier les Merge";
+		sh:prefixes hht: ;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?this a hht:Merge.
+			}
+			WHERE {
+				$this a hht:CompositeChange.
+				$this owl:sameAs ?this.
+				{SELECT (COUNT(DISTINCT ?unitB) AS ?cardB) WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:before ?before.
+					?unitB hht:hasVersion ?before.
+				}}
+				{SELECT (COUNT(DISTINCT ?unitA) AS ?cardA) WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:after ?after.
+					?unitA hht:hasVersion ?after.
+				}}
+				FILTER (?cardA=1)
+				FILTER (?cardB>1)
+							
+			}"""
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		sh:order 9;
+		rdfs:label "Qualifier les Restructuration";
+		sh:prefixes hht: ;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?this a hht:Redistribution.
+			}
+			WHERE {
+				$this a hht:CompositeChange.
+				$this owl:sameAs ?this.
+				{SELECT (COUNT(DISTINCT ?unitB) AS ?cardB)WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:before ?before.
+					?unitB hht:hasVersion ?before.
+				}}
+				{SELECT (COUNT(DISTINCT ?unitA) AS ?cardA) WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:after ?after.
+					?unitA hht:hasVersion ?after.
+				}}
+				FILTER (?cardA>1)
+				FILTER (?cardB>1)
+							
+			}"""
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier les ContinuationChange";
+		sh:prefixes hht: ;
+		sh:order 9;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?this a hht:ContinuationChange.
+			}
+			WHERE {
+				$this a hht:CompositeChange.
+				$this owl:sameAs ?this.
+				{SELECT (COUNT(DISTINCT ?unitB) AS ?cardB)WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:before ?before.
+					?unitB hht:hasVersion ?before.
+				}}
+				{SELECT (COUNT(DISTINCT ?unitA) AS ?cardA) WHERE {
+					$this owl:sameAs ?this2.
+					?subchange hht:isPartOf ?this2.
+					?subchange hht:after ?after.
+					?unitA hht:hasVersion ?after.
+				}}
+				{SELECT (COUNT(DISTINCT ?unit) AS ?cardInt) WHERE {
+					$this owl:sameAs ?this3.
+					?subchange2 hht:isPartOf ?this3.
+					?subchange2 hht:after ?after2.
+					?unit hht:hasVersion ?after2.
+					?subchange2 hht:before ?before2.
+					?unit hht:hasVersion ?before2.
+					
+				}}
+				FILTER((?cardA>=?cardB && ?cardInt=?cardB) || (?cardB>=?cardA && ?cardInt=?cardA))
+							
+			}"""
+
+
+	];
+	sh:rule [
+		a sh:SPARQLRule ;
+		rdfs:label "Qualifier les DerivationChange";
+		sh:prefixes hht: ;
+		sh:order 9;
+		sh:prefixes time: ;
+		sh:construct """
+			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				?this a hht:DerivationChange.
+			}
+			WHERE {
+				$this a hht:CompositeChange.
+				$this owl:sameAs ?this.
+				{SELECT (COUNT(DISTINCT ?unit) AS ?cardInt) WHERE {
+					$this owl:sameAs ?this3.
+					?subchange2 hht:isPartOf ?this3.
+					?subchange2 hht:after ?after2.
+					?unit hht:hasVersion ?after2.
+					?subchange2 hht:before ?before2.
+					?unit hht:hasVersion ?before2.
+					
+				}}
+				FILTER(?cardInt=0)
+							
+			}"""
+
+
+	].
+
+
