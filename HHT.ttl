@@ -1,0 +1,732 @@
+@prefix : <http://www.semanticweb.org/HHT_Ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix obaData: <http://www.semanticweb.org/melodi/data#> .
+@base <http://www.semanticweb.org/HHT_Ontology> .
+
+<http://www.semanticweb.org/HHT_Ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/HHT_Ontology#attachedTo
+:attachedTo rdf:type owl:ObjectProperty ;
+            rdfs:domain :Institution ;
+            rdfs:range :TerritoryVersion ;
+            rdfs:comment "Denotes the dominion of an Institution over a territory."@en ;
+            rdfs:label "attachedTo" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#before
+:before rdf:type owl:ObjectProperty ;
+        owl:inverseOf :goesThrough ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Change ;
+        rdfs:range :UnitVersion ;
+        rdfs:comment "Links a FeatureChange to the unit version being transformed by said change."@en ;
+        rdfs:label "before" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#claimDuration
+:claimDuration rdf:type owl:ObjectProperty ;
+               rdfs:domain :Claim ;
+               rdfs:range time:Interval ;
+               rdfs:comment "Denotes the time interval where a claim is active."@en ;
+               rdfs:label "claimDuration" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#claimIssuedBy
+:claimIssuedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :Claim ;
+               rdfs:range :Claimer ;
+               rdfs:comment "Denotes the actor  issuing the claim."@en ;
+               rdfs:label "claimIssuedBy" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#contains
+:contains rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isLocatedIn ;
+          rdf:type owl:AsymmetricProperty ,
+                   owl:TransitiveProperty ,
+                   owl:ReflexiveProperty ;
+          rdfs:domain :UnitVersion ;
+          rdfs:range :UnitVersion ;
+          rdfs:comment "Denotes an unit version geometrically included inside another unit version."@en ;
+          rdfs:label "contains" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#emergesFrom
+:emergesFrom rdf:type owl:ObjectProperty ;
+             rdfs:domain :UnitVersion ;
+             rdfs:range :Change ;
+             rdfs:comment "Links a unit version to the feature change leading to the beginning of its validity."@en ;
+             rdfs:label "emergesFrom" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#goesThrough
+:goesThrough rdf:type owl:ObjectProperty ;
+             rdfs:domain :UnitVersion ;
+             rdfs:range :Change ;
+             rdfs:comment "Links a unit version to the feature change leading to the end of its validity period."@en ;
+             rdfs:label "goesThrough" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasEquivalentLevel
+:hasEquivalentLevel rdf:type owl:ObjectProperty ,
+                             owl:SymmetricProperty ,
+                             owl:TransitiveProperty ,
+                             owl:ReflexiveProperty ;
+                    rdfs:domain :LevelVersion ;
+                    rdfs:range :LevelVersion ;
+                    rdfs:comment "Denotes the equivalence of levels regarding their rank in the hierarchy they take part in."@en ;
+                    rdfs:label "hasEquivalentLevel" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasID
+:hasID rdf:type owl:ObjectProperty ;
+       owl:inverseOf :isIDOf ;
+       rdfs:domain :Unit ;
+       rdfs:range :outerID ;
+       rdfs:comment "Links a Unit to the outerID object representing its ID in another database."@en ;
+       rdfs:label "hasID" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasLevel
+:hasLevel rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isLevelOf ;
+          rdfs:domain :HierarchicalCriterion ;
+          rdfs:range :LevelVersion ;
+          rdfs:comment "Denotes that a hierarchy based on Hierarchical Criterion uses a Level version."@en ;
+          rdfs:label "hasLevel" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isMemberOf ;
+           rdfs:domain :LevelVersion ;
+           rdfs:range :UnitVersion ;
+           rdfs:comment "Denotes that a Level Version is the level of a Unit Version."@en ;
+           rdfs:label "hasMember" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasSubLevel
+:hasSubLevel rdf:type owl:ObjectProperty ;
+             owl:inverseOf :hasUpperLevel ;
+             rdfs:domain :LevelVersion ;
+             rdfs:range :LevelVersion ;
+             owl:propertyChainAxiom ( :hasMember
+                                      :hasSubUnit
+                                      :isMemberOf
+                                    ) ;
+             rdfs:comment "Denotes hierarchical superiority of a level version to another."@en ;
+             rdfs:label "hasSubLevel" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasSubUnit
+:hasSubUnit rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :contains ;
+            owl:inverseOf :hasUpperUnit ;
+            rdf:type owl:AsymmetricProperty ,
+                     owl:IrreflexiveProperty ;
+            rdfs:domain :UnitVersion ;
+            rdfs:range :UnitVersion ;
+            rdfs:comment "Denotes the hierarchical direct lower territory."@en ;
+            rdfs:label "hasSubUnit" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasUpperLevel
+:hasUpperLevel rdf:type owl:ObjectProperty ;
+               rdfs:domain :LevelVersion ;
+               rdfs:range :LevelVersion ;
+               owl:propertyChainAxiom ( :hasMember
+                                        :hasUpperUnit
+                                        :isMemberOf
+                                      ) ;
+               rdfs:comment "Denotes hierarchical inferiority of a level version to another."@en ;
+               rdfs:label "hasUpperLevel" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasUpperUnit
+:hasUpperUnit rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :isLocatedIn ;
+              rdfs:domain :UnitVersion ;
+              rdfs:range :UnitVersion ;
+              rdfs:comment "Denotes the hierarchical direct upper territory."@en ;
+              rdfs:label "hasUpperUnit" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#hasVersion
+:hasVersion rdf:type owl:ObjectProperty ;
+            rdfs:range :Version ;
+            rdfs:comment "Links any versionable object to its versions. Classes of the object and its version should be coherent (ex : Unit and UnitVersion)"@en ;
+            rdfs:label "hasVersion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#involvesLowerTerritory
+:involvesLowerTerritory rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Claim ;
+                        rdfs:range :TerritoryVersion ;
+                        rdfs:comment "Denotes the lower territory involved in a Claim."@en ;
+                        rdfs:label "involvesLowerTerritory" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#involvesUpperTerritory
+:involvesUpperTerritory rdf:type owl:ObjectProperty ;
+                        rdfs:comment "Denotes the upper territory involved in a Claim."@en ;
+                        rdfs:label "involvesUpperTerritory" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isClaiming
+:isClaiming rdf:type owl:ObjectProperty ;
+            rdfs:domain :Claimer ;
+            rdfs:range :Claim ;
+            rdfs:comment "Denotes the claim of an actor."@en ;
+            rdfs:label "isClaiming" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isComposedOf
+:isComposedOf rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isPartOf ;
+              rdfs:domain :FeatureChange ;
+              rdfs:range :CompositeChange ;
+              rdfs:comment "Denotes a FeatureChange that is part of a compositeChange."@en ;
+              rdfs:label "isComposedOf" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isFrom
+:isFrom rdf:type owl:ObjectProperty ;
+        rdfs:domain :outerID ;
+        rdfs:range :IDSource ;
+        rdfs:comment "Denotes the source of an outer ID."@en ;
+        rdfs:label "isFrom" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isIDOf
+:isIDOf rdf:type owl:ObjectProperty ;
+        rdfs:domain :outerID ;
+        rdfs:range :Unit ;
+        rdfs:comment "Denotes the Unit which is attributed an ID from another database."@en ;
+        rdfs:label "isIDOf" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isInvolvedInClaim
+:isInvolvedInClaim rdf:type owl:ObjectProperty ;
+                   rdfs:domain :TerritoryVersion ;
+                   rdfs:range :Claim ;
+                   rdfs:comment "Denotes that a territory version is involved in a Claim"@en ;
+                   rdfs:label "isInvolvedInClaim" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isLevelOf
+:isLevelOf rdf:type owl:ObjectProperty ;
+           rdfs:comment "Denotes the hierarchical Criterion a level version is related to."@en ;
+           rdfs:label "isLevelOf" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ,
+                      owl:AsymmetricProperty ,
+                      owl:TransitiveProperty ,
+                      owl:IrreflexiveProperty ;
+             rdfs:domain :UnitVersion ;
+             rdfs:range :UnitVersion ;
+             rdfs:comment "Denotes the location of a unit version inside another one."@en ;
+             rdfs:label "isLocatedIn" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isMemberOf
+:isMemberOf rdf:type owl:ObjectProperty ;
+            rdfs:comment "Denotes the level of an UnitVersion."@en ;
+            rdfs:label "isMemberOf" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:comment "Denotes a compositeChange which including a FeatureChange."@en ;
+          rdfs:label "isPartOf" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#lacksInformationAbout
+:lacksInformationAbout rdf:type owl:ObjectProperty ;
+                       rdfs:domain :IncompleteGeometryChange ;
+                       rdfs:range :Unit ;
+                       rdfs:comment "Denotes the building blocks appearing/disappearing from the geometry of any territory of a given level described in the knowledge graph during a FeatureChange involving a territory of said level."@en ;
+                       rdfs:label "lacksInformationAbout" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#validityPeriod
+:validityPeriod rdf:type owl:ObjectProperty ;
+                rdfs:domain :Version ;
+                rdfs:range time:Interval ;
+                rdfs:comment "Denotes the time interval where the state described by a version is valid."@en ;
+                rdfs:label "validityPeriod" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/HHT_Ontology#idObardi
+:idObardi rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Unit ;
+          rdfs:range xsd:string ;
+          rdfs:comment "An unique ID used inside the ObARDI project to identify objects."@en ;
+          rdfs:label "idObardi" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#idValue
+:idValue rdf:type owl:DatatypeProperty ;
+         rdfs:domain :outerID ;
+         rdfs:range xsd:string ;
+         rdfs:comment "The value of an ID."@en ;
+         rdfs:label "idValue" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#isDeprecated
+:isDeprecated rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Version ;
+              rdfs:range xsd:boolean ;
+              rdfs:comment "A boolean, indicating whether a version is deprecated or not. Without any property regarding deprecation, a version is considered as non-deprecated."@en ;
+              rdfs:label "isDeprecated" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.cidoc-crm.org/cidoc-crm/E39_Actor
+<http://www.cidoc-crm.org/cidoc-crm/E39_Actor> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E5_Event
+<http://www.cidoc-crm.org/cidoc-crm/E5_Event> rdf:type owl:Class .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E74_Group
+<http://www.cidoc-crm.org/cidoc-crm/E74_Group> rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+<http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Appearance
+:Appearance rdf:type owl:Class ;
+            rdfs:subClassOf :FeatureChange ;
+            rdfs:comment "Changement simple signifiant l'apparition d'un territoire."@fr ,
+                         """Feature change describing birth (or rebirth) of a territory.
+As such, it should only have a hht:after, and no hht:before."""@en ;
+            rdfs:label "Appearance" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Area
+:Area rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+      rdfs:comment "Geographical area, which is not necessarily defined by any human division."@en ,
+                   "Zone géographique générique auquel la recherche historique donne du sens"@fr ;
+      rdfs:label "Area" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#AutonomyRequest
+:AutonomyRequest rdf:type owl:Class ;
+                 rdfs:subClassOf :Claim ;
+                 rdfs:comment "Category of Claim encompassing the will of a territory's actor to have this territory hierarchical level upgraded to a higher level."@en ;
+                 rdfs:label "AutonomyRequest" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Change
+:Change rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E5_Event> ;
+        rdfs:comment "Event expliciting the evolution occuring for the territories between their versions."@en ,
+                     "Evénement historique qui explicite les transformations que le territoire subit entre ses différentes versions"@fr ;
+        rdfs:label "Change" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Claim
+:Claim rdf:type owl:Class ;
+       rdfs:comment "Class describing claims of an actor to change the current territory divisions. It depends on a higher and lower territory. The actual meaning of the claim in regard of those territories depends on the subclass of Claim considered."@en ;
+       rdfs:label "Claim" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#ClaimTo
+:ClaimTo rdf:type owl:Class ;
+         rdfs:subClassOf :Claim ;
+         rdfs:comment "Category of claim encompassing cases where an actor from a territory claims its owneship of a lower territory attached to another upper territory."@en ;
+         rdfs:label "ClaimTo" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Claimer
+:Claimer rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :isClaiming ;
+                               owl:someValuesFrom :Claim
+                             ] ;
+         rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> ;
+         rdfs:comment "Acteur capable de revendication sur un territoire."@fr ,
+                      "Actor who can carry a claim on a territory"@en ;
+         rdfs:label "Claimer" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#CompositeChange
+:CompositeChange rdf:type owl:Class ;
+                 rdfs:subClassOf :Change ;
+                 rdfs:comment "Changement composite qui regroupe plusieurs FeatureChange ensemble et donne un sens à l'ensemble de ces changements."@fr ,
+                              "Composite change which collects a set of FeatureChange which are intrinsecally linked in order to further qualify the type of change"@en ;
+                 rdfs:label "CompositeChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#ContinuationChange
+:ContinuationChange rdf:type owl:Class ;
+                    rdfs:subClassOf :CompositeChange ;
+                    rdfs:comment "Changement Géométrique n'affectant pas l'identité des Units impliquées."@fr ,
+                                 "Gomposite change that doesn't affect the identity of the involved Units."@en ;
+                    rdfs:label "ContinuationChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Contraction
+:Contraction rdf:type owl:Class ;
+             rdfs:subClassOf :GeometryChange ;
+             rdfs:comment "Geometry change describing the loss of a portion of geometry"@en ;
+             rdfs:label "Contraction" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#DeclarationUnder
+:DeclarationUnder rdf:type owl:Class ;
+                  rdfs:subClassOf :Claim ;
+                  rdfs:comment "Category of change encompassing cases where an actor of a lower territory wills to change its hierarchical superior."@en ;
+                  rdfs:label "DeclarationUnder" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Deformation
+:Deformation rdf:type owl:Class ;
+             rdfs:subClassOf :GeometryChange ;
+             rdfs:comment "Geometry change describing the simultaneous loss and gain of geometry portions."@en ;
+             rdfs:label "Deformation" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#DerivationChange
+:DerivationChange rdf:type owl:Class ;
+                  rdfs:subClassOf :CompositeChange ;
+                  rdfs:comment "Changement géométrique résultant en la disparition des anciens territoires et l'apparition de nouveaux."@fr ,
+                               "Composite Change which affects the identities of territories."@en ;
+                  rdfs:label "DerivationChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Disappearance
+:Disappearance rdf:type owl:Class ;
+               rdfs:subClassOf :FeatureChange ;
+               rdfs:comment "Changement simple signifiant la disparition d'un territoire."@fr ,
+                            """Feature change describing the end of a territory's existence. 
+As such, it should only have a hht:before, and no hht:after."""@en ;
+               rdfs:label "Disappearance" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#DubiousGeometryChange
+:DubiousGeometryChange rdf:type owl:Class ;
+                       rdfs:subClassOf :IncompleteGeometryChange ;
+                       rdfs:comment "Subclass of geometry change describing the case where all of the building blocks that are lost/added to the geometry are nowhere to be found after/before the change."@en ;
+                       rdfs:label "DubiousGeometryChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#ElementaryLevel
+:ElementaryLevel rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :Level
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasVersion ;
+                                                              owl:someValuesFrom :ElementaryLevelVersion
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf :Level ;
+                 rdfs:comment "This subclass of level allows to define which level(s) will be considered to determine the building blocks of the geometry. This class should be attributed to the lowest level of all hierarchies."@en ;
+                 rdfs:label "ElementaryLevel" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#ElementaryLevelVersion
+:ElementaryLevelVersion rdf:type owl:Class ;
+                        rdfs:subClassOf :LevelVersion ;
+                        rdfs:comment "This subclass of level version allows to define which level(s) will be considered to determine the building blocks of the geometry. This class should be attributed to the lowest level of all hierarchies."@en ;
+                        rdfs:label "ElementaryLevelVersion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Expansion
+:Expansion rdf:type owl:Class ;
+           rdfs:subClassOf :GeometryChange ;
+           rdfs:comment """Expansion de la géométrie d'une unité hiérarchique. 
+La géométrie de l'unité hiérarchique avant ce changement doit être strictement inclus dans la géométrie de l'unité hiérarchique après ce changement."""@fr ,
+                        "Geometry change describing the gain of a geometry portion."@en ;
+           rdfs:label "Expansion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Extraction
+:Extraction rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :ContinuationChange
+                                                       :Split
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf :ContinuationChange ,
+                            :Split ;
+            rdfs:comment "Changement géométrique correspondant au cas où une portion d'un territoire A s'extrait de celui-ci pour donner deux territoires A et B."@fr ,
+                         "Geometry restructuration describing the case where part of a territory A is extracted, resulting in two or more territories (including A)"@en ;
+            rdfs:label "Extraction" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#FeatureChange
+:FeatureChange rdf:type owl:Class ;
+               rdfs:subClassOf :Change ;
+               rdfs:comment "Change describing the transformation leading from one version to another. It only affects one unit."@en ,
+                            """Changement qui explicite la modification d'une caractéristique entre deux versions d'unité hiérarchique.
+Ces caractéristiques doivent porter sur ceux propre à l'identité d'une version."""@fr ;
+               rdfs:label "FeatureChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Fusion
+:Fusion rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :DerivationChange
+                                                   :Merge
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+        rdfs:subClassOf :DerivationChange ,
+                        :Merge ;
+        rdfs:comment "Changement géométrique correspondant au cas où deux territoires A et B fusionnent pour donner un nouveau territoire C."@fr ,
+                     "Geometry restructuration where several territories come together to form a non-previously existing one."@en ;
+        rdfs:label "Fusion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#GeometryChange
+:GeometryChange rdf:type owl:Class ;
+                rdfs:subClassOf :FeatureChange ;
+                rdfs:comment "Changement portant sur la géométrie entre deux versions d'unités hiérarchiques."@fr ,
+                             "Feature change describing the evolution of the geometry of a territory."@en ;
+                rdfs:label "GeometryChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#GeometryRestructuration
+:GeometryRestructuration rdf:type owl:Class ;
+                         rdfs:subClassOf :CompositeChange ;
+                         rdfs:comment "Composite change describing a change in the way a geometric area is divided into territories."@en ,
+                                      "Type de changement qualifiant une évolution de la géométrie d'un territoire."@fr ;
+                         rdfs:label "GeometryRestructuration" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#HierarchicalCriterion
+:HierarchicalCriterion rdf:type owl:Class ;
+                       rdfs:comment "Concept, principle or nomenclature inducing a hierarchical division of territories."@en ;
+                       rdfs:label "HierarchicalCriterion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#IDSource
+:IDSource rdf:type owl:Class ;
+          rdfs:comment "Cette classe décrit de manière abstraite les bases de données historiques dont on peut extraire des identifiants spécifiques, avec pour objectif d'augmenter la réutilisabilité des données représentées."@fr ,
+                       "This class describes abstractly historical databases from which IDs can be collected, in order to improve reusability of data."@en ;
+          rdfs:label "IDSource" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#IncompleteGeometryChange
+:IncompleteGeometryChange rdf:type owl:Class ;
+                          rdfs:subClassOf :GeometryChange ;
+                          rdfs:comment "Subclass of geometry change describing the case where some of the building blocks that are lost/added to the geometry are nowhere to be found after/before the change."@en ;
+                          rdfs:label "IncompleteGeometryChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Institution
+:Institution rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E74_Group> ,
+                             :Claimer ;
+             rdfs:comment "Category of claimer which corresponds to a moral person in charge of a territory."@en ;
+             rdfs:label "Institution" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Integration
+:Integration rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :ContinuationChange
+                                                        :Merge
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :ContinuationChange ,
+                             :Merge ;
+             rdfs:comment "Changement géométrique correspondant au cas où un territoire A absorbe un territoire B en son sein."@fr ,
+                          "Geometry restructuration describing the absorption of one or more territories by a territory A, so that only A remains."@en ;
+             rdfs:label "Integration" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Level
+:Level rdf:type owl:Class ;
+       rdfs:comment "Hierarchical level of a territory."@en ,
+                    """Niveau hiérarchique servant à interpréter le territoire et à le classifier.
+Ce niveau se défini selon un critère qui explicite la dimension à travers laquel l'espace est analysé. 
+Ce niveau hiérarchique peut posséder des niveaux supérieurs et/ou inférieurs selon ce même critère. 
+Ce niveau contient un ensemble d'unité spatiale dont l'union forme son territoire d'étude, d'application."""@fr ;
+       rdfs:label "Level" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#LevelVersion
+:LevelVersion rdf:type owl:Class ;
+              rdfs:subClassOf :Version ;
+              rdfs:comment "Version of a level."@en ;
+              rdfs:label "LevelVersion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Member
+:Member rdf:type owl:Class ;
+        rdfs:subClassOf :Claimer ;
+        rdfs:comment "Category of Claimer which corresponds to a physical person who is part of an Institution."@en ;
+        rdfs:label "Member" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Merge
+:Merge rdf:type owl:Class ;
+       rdfs:subClassOf :GeometryRestructuration ;
+       rdfs:comment "Changement géométrique correspondant à l'aggrégation de deux territoires."@fr ,
+                    "Geometry restructuration describing the merging of several territories into one."@en ;
+       rdfs:label "Merge" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#NameChange
+:NameChange rdf:type owl:Class ;
+            rdfs:subClassOf :FeatureChange ;
+            rdfs:comment "Change of name (rdfs:label) between two versions."@en ,
+                         "Changement de label entre deux versions d'unité hiérarchique."@fr ;
+            rdfs:label "NameChange" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Reallocation
+:Reallocation rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :DerivationChange
+                                                         :Redistribution
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :DerivationChange ,
+                              :Redistribution ;
+              rdfs:comment "Changement géométrique correspondant au cas où la zone occupée par un ensemble de territoires est redécoupée, donnant naissance à de nouveaux territoires remplaçant les anciens."@fr ,
+                           "Geometry restructuration involving a remapping of a given area that includes a change of the identities of all formerly present territories."@en ;
+              rdfs:label "Reallocation" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Rectification
+:Rectification rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :ContinuationChange
+                                                          :Redistribution
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :ContinuationChange ,
+                               :Redistribution ;
+               rdfs:comment "Changement géométrique correspondant au cas où un ensemble de territoires révisent leurs frontières, sans qu'aucun ne disparaisse."@fr ,
+                            "Geometry restructuration involving remapping of several territories, in a way such that all the territories that exist after existed before."@en ;
+               rdfs:label "Rectification" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Redistribution
+:Redistribution rdf:type owl:Class ;
+                rdfs:subClassOf :GeometryRestructuration ;
+                rdfs:comment "Changement géométrique correspondant à une altération des frontières existantes."@fr ,
+                             "Geometry restructuration describing a remapping of an area occupied by several territories."@en ;
+                rdfs:label "Redistribution" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Scission
+:Scission rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :DerivationChange
+                                                     :Split
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf :DerivationChange ,
+                          :Split ;
+          rdfs:comment "Changement géométrique correspondant au cas où l'on sépare un territoire A en deux nouveaux territoires B et C."@fr ,
+                       "Geometry restructuration describing the split of a territory into several non-previously existing ones."@en ;
+          rdfs:label "Scission" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Split
+:Split rdf:type owl:Class ;
+       rdfs:subClassOf :GeometryRestructuration ;
+       rdfs:comment "Changement géométrique correspondant à la séparation d'un territoire en plusieurs."@fr ,
+                    "Geometry restructuration describing the division of one territory into several."@en ;
+       rdfs:label "Split" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#TerritoryVersion
+:TerritoryVersion rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :UnitVersion
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :attachedTo ;
+                                                               owl:someValuesFrom :Institution
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :UnitVersion ;
+                  rdfs:comment "Subtype of UnitVersion that adds the notion of the influence of the actors over it."@en ,
+                               """Unité spatiale défini comme un territoire : 
+Une représentation abstraite d'une portion géographique qui est réclamé ou occupé par une personne, un groupe ou une institution"""@fr ;
+                  rdfs:label "TerritoryVersion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Unit
+:Unit rdf:type owl:Class ;
+      rdfs:comment "Space unit taking part into a hierarchy. Its state is further described using UnitVersion."@en ,
+                   """Un partie d'espace géographique défini comme appartenant à un niveau hiérarchique. 
+Cette unité spatiale peut contenir des sous-unités d'un niveau différent et peut être contenu par une unité d'un niveau supérieur"""@fr ;
+      rdfs:label "Unit" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#UnitVersion
+:UnitVersion rdf:type owl:Class ;
+             rdfs:subClassOf :Area ,
+                             :Version ;
+             rdfs:comment """Représentation d'une unité spatiale dont la géométrie a été stable pour une période de temps. 
+ Les composantes inférieurs de cette unité peuvent se modifer pendant cette période de temps, mais cela n'a pas affecté la géométrie de cette unité."""@fr ,
+                          """Time slice representing the state of a unit during a provided time interval.
+It is considered that the state of a unit is not affected by its upper and lower units, so long as it doesn't change its geometry."""@en ;
+             rdfs:label "UnitVersion" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#Version
+:Version rdf:type owl:Class ;
+         rdfs:comment "Time slice representing a temporary state of an object. It is attached to said object, which bears the identity."@en ,
+                      """Version d'un concept, dont une définition donné de l'identité définissant une version est stable au cours d'une période de temps. 
+Chaque version peut se rattacher au concept atemporel qu'elle décrit.
+Chaque version se succède l'une à l'autre, par des changements qui peuvent être décrit."""@fr ;
+         rdfs:label "Version" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#outerID
+:outerID rdf:type owl:Class ;
+         rdfs:comment "Cette classe correspond à une réification d'un champ ID extérieur à l'indexation interne. On y aggrège un IDSource qui représente l'origine de l'identifiant, et une valeur (idValue) correspondant à l'identifiant à proprement parler."@fr ,
+                      "This class is a reification of an ID data field that differs from intern indexation. It is attached to an IDSource which describes the origin of said ID, and an idValue which corresponds to the actual ID."@en ;
+         rdfs:label "outerID" .
+
+
+###  http://www.semanticweb.org/HHT_Ontology#updateKnowledge
+:updateKnowledge rdf:type owl:Class ;
+                 rdfs:subClassOf :Change ;
+                 rdfs:comment "Meta-Knwoledge change, which is used to describe the evolution of knowledge inside the knowledge graph. It should be used to link a version that gets deprecated and the version that replaces it whenever adding new data that patches the former knowledge."@en ,
+                              "Type de changement portant sur les méta-connaissances. Il permet de décrire l'évolution des connaissances des historiens sur un territoire, et relie deux versions d'une connaissance historique, indiquant laquelle est la plus à jour."@fr ;
+                 rdfs:label "updateKnowledge" .
+
+
+###  http://www.w3.org/2006/time#Interval
+time:Interval rdf:type owl:Class ;
+              rdfs:label "Interval" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+obaData:Judiciaire rdfs:label "Judiciaire" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
