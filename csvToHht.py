@@ -5,7 +5,7 @@ import unit
 import sys
 
 
-hht="http://www.semanticweb.org/HHT_Ontology#"
+hht="https://w3id.org/HHT#"
 oba="http://www.semanticweb.org/melodi/types#"
 data="http://www.semanticweb.org/melodi/data#"
 

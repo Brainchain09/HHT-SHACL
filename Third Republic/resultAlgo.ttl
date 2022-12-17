@@ -1,6 +1,6 @@
 @prefix dash:    <http://datashapes.org/dash#> .
 @prefix graphql: <http://datashapes.org/graphql#> .
-@prefix hht:     <http://www.semanticweb.org/HHT_Ontology#> .
+@prefix hht:     <https://w3id.org/HHT#> .
 @prefix oba:     <http://www.semanticweb.org/melodi/types#> .
 @prefix obaData: <http://www.semanticweb.org/melodi/data#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .

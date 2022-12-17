@@ -1,4 +1,4 @@
-@prefix hht: <http://www.semanticweb.org/HHT_Ontology#> .
+@prefix hht: <https://w3id.org/HHT#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
@@ -15,7 +15,7 @@ hht:VersionRuleShape a sh:NodeShape ;
 		sh:order 1;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			CONSTRUCT {
 				$this hht:hasNextVersion ?nextVersion.
@@ -42,7 +42,7 @@ hht:VersionRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:order 2;
 		sh:prefixes time: ;
-		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+		sh:construct """PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			 CONSTRUCT {
 				$this hht:goesThrough ?change .
@@ -68,7 +68,7 @@ hht:VersionRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:order 2;
 		sh:prefixes time: ;
-		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+		sh:construct """PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			 CONSTRUCT {
 				$this hht:goesThrough ?dis .
@@ -99,7 +99,7 @@ hht:VersionRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:order 2;
 		sh:prefixes time: ;
-		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+		sh:construct """PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			 CONSTRUCT {
@@ -134,7 +134,7 @@ hht:VersionRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:order 2;
 		sh:prefixes time: ;
-		sh:construct """PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+		sh:construct """PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			 CONSTRUCT {
@@ -168,7 +168,7 @@ hht:FeatureChangeRuleShape a sh:NodeShape ;
 		sh:prefixes time: ;
 		sh:construct """
 			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 
 			CONSTRUCT {
@@ -190,7 +190,7 @@ hht:FeatureChangeRuleShape a sh:NodeShape ;
 		sh:order 4;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -238,7 +238,7 @@ hht:FeatureChangeRuleShape a sh:NodeShape ;
 		sh:prefixes time: ;
 		sh:order 4;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -285,7 +285,7 @@ hht:FeatureChangeRuleShape a sh:NodeShape ;
 		sh:order 4;
 		sh:prefixes time: ;
 					sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -337,7 +337,7 @@ hht:IncompleteGeometryDataChangeRule a sh:NodeShape ;
 		rdfs:label "";
 		sh:order 5;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -370,7 +370,7 @@ hht:IncompleteGeometryDataChangeRule a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
 		sh:order 5;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -421,7 +421,7 @@ hht:ComplexChangeMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
 		sh:order 6;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -459,7 +459,7 @@ hht:ComplexChangeMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
 		sh:order 6;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -497,7 +497,7 @@ hht:ComplexChangeMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires antérieurs";
 		sh:order 7;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -535,7 +535,7 @@ hht:ComplexChangeMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
 		sh:order 7;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -576,7 +576,7 @@ hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les disparitions selon les territoires postérieurs";
 		sh:order 6;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -611,7 +611,7 @@ hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
 		sh:order 7;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -650,7 +650,7 @@ hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les disparitions selon les territoires postérieurs";
 		sh:order 6;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -685,7 +685,7 @@ hht:ComplexDisappearanceMakerRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements simples selon les territoires postérieurs";
 		sh:order 7;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			CONSTRUCT {
@@ -723,7 +723,7 @@ hht:ComplexChangeUnifierRuleShape a sh:NodeShape ;
 		rdfs:label "Rattacher les changements complexes pour ceux en ayant plusieurs";
 		sh:order 8;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX time: <http://www.w3.org/2006/time#>
 			PREFIX oba: <http://www.semanticweb.org/melodi/types#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -746,7 +746,7 @@ hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			CONSTRUCT {
 				?this a hht:Split.
@@ -778,7 +778,7 @@ hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			CONSTRUCT {
 				?this a hht:Merge.
@@ -810,7 +810,7 @@ hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
 		sh:prefixes hht: ;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			CONSTRUCT {
 				?this a hht:Redistribution.
@@ -842,7 +842,7 @@ hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
 		sh:order 9;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			CONSTRUCT {
 				?this a hht:ContinuationChange.
@@ -884,7 +884,7 @@ hht:ComplexChangeQualifierRuleShape a sh:NodeShape ;
 		sh:order 9;
 		sh:prefixes time: ;
 		sh:construct """
-			PREFIX hht: <http://www.semanticweb.org/HHT_Ontology#>
+			PREFIX hht: <https://w3id.org/HHT#>
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			CONSTRUCT {
 				?this a hht:DerivationChange.

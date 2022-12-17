@@ -1,4 +1,4 @@
-@prefix :        <http://www.semanticweb.org/HHT_Ontology#> .
+@prefix :        <https://w3id.org/HHT#> .
 @prefix dash:    <http://datashapes.org/dash#> .
 @prefix graphql: <http://datashapes.org/graphql#> .
 @prefix obaData: <http://www.semanticweb.org/melodi/data#> .
