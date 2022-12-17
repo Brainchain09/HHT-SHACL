@@ -23,7 +23,7 @@ ID columns should contain territories Ids, while the level * (which should be re
 Finally, note that each building block should be described for each year it exists, and the lines should be sorted  by year. The table below provides a simple example for two building blocks.
 
 |Year  |Id Commune  | Commune |  Id Departement | Departement |
-|--|--|--|--|--|--|--|--|
+|--|--|--|--|--|
 |1987|31600|Muret|31|Haute-Garonne|
 |1987|31000|Toulouse|31|Haute-Garonne|
 |1988|31600|Muret|31|Haute-Garonne|
