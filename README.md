@@ -50,7 +50,7 @@ Examples of knowledge graphs using HHT are provided. They are located in the fol
 
 Every dataset folder contains a **.ttl** file containing the initial knowledge graph, the result of the FDD version of the algorithm on this graph (**resultAlgo.ttl**) a dataset description and, when pertinent, the original datasets used to create the knowledge graphs.
 
-## Querying
+
 
 We provide example of SPARQL queries that can be used in order to query the knowledge graph and the result of the algorithm.
 
@@ -92,3 +92,116 @@ We provide example of SPARQL queries that can be used in order to query the know
 	    	?start <http://www.w3.org/2006/time#inXSDgYear> ?year.
 	    } GROUP BY ?year ORDER BY ?year
 
+## Querying : comparison with TSN
+
+Some queries can be carried out in TSN and not in HHT. Here are some examples :
+
+1. Identify levels taking part in several hierarchies :
+
+		SELECT DISTINCT ?level WHERE {
+			{SELECT ?level (COUNT(DISTINCT ?hierarchy) AS ?nbHierarchies) {
+				?level a hht:Level.
+				?level hht:hasVersion ?v.
+				?v hht:isLevelOf ?hierarchy.	
+			} GROUP BY ?level.}
+			FILTER (?hierarchy > 1).	
+		}
+
+2. Identify Units that are part of given territories from different hierarchies :
+
+		SELECT DISTINCT ?unit WHERE {
+			?unit a hht:Unit.
+			?unit hht:hasUnitVersion ?v.
+			?v hht:isMemberOf ?levelV.
+			oba:Paroisse hht:hasLevelVersion ?levelV.
+			oba:Generalite000007v1 hht:contains ?v.
+			oba:Diaconne000106v1 hht:contains ?v.	
+		}
+		
+Some queries easily written in TSN get extremely verbose with HHT. For example if we want to get all the units being part of oba:Generalite000007 at the same time as oba:Paroisse015267, it will be written in TSN : 
+
+		SELECT DISTINCT ?unit WHERE {
+			?unit a tsn:Unit.
+			?unit tsn:hasVersion ?v.
+			?v tsn:isMemberOf ?levelV.
+			?levelV tsn:isDivisionOf ?nomenclature.
+			oba:Generalite000007 tsn:hasVersion ?generalV.
+			oba:Paroisse015267 tsn:hasVersion ?vParoisse.
+			?generalV tsn:hasSubFeature ?vParoisse.
+			?generalV tsn:hasSubFeature ?v.
+		}
+It is much more verbose in HHT :
+
+		SELECT DISTINCT ?unit WHERE {
+			?unit a hht:Unit.
+			?unit hht:hasUnitVersion ?v.
+			oba:Generalite000007 hht:hasUnitVersion ?generalV.
+			?generalV hht:hasSubUnit ?v.
+			{SELECT ?datestart ?dateend WHERE{
+				oba:Paroisse015267 hht:hasVersion ?vParoisse.
+				?generalV hht:hasSubUnit ?vParoisse.
+				?generalV hht:validityPeriod ?gInterval.
+				?gInterval time:hasBeginning ?gBegin.
+				?gBegin time:inXSDgYear ?gBeginYear.
+				?gInterval time:hasEnd ?gEnd.
+				?gEnd time:inXSDgYear ?gEndYear.
+				?vParoisse hht:validityPeriod ?pInterval.
+				?pInterval time:hasBeginning ?pBegin.
+				?pBegin time:inXSDgYear ?pBeginYear.
+				?pInterval time:hasEnd ?pEnd.
+				?pEnd time:inXSDgYear ?pEndYear.
+				BIND(IF(?pBeginYear < ?gBeginYear, ?gBeginYear, ?pBeginYear) AS ?datestart)
+				BIND(IF(?pEndYear > ?gEndYear, ?gEndYear, ?pENdYear) AS ?dateend)		
+			}
+			{SELECT ?datestartV ?dateendV WHERE{
+				?generalV hht:validityPeriod ?gInterval.
+				?gInterval time:hasBeginning ?gBegin.
+				?gBegin time:inXSDgYear ?gBeginYear.
+				?gInterval time:hasEnd ?gEnd.
+				?gEnd time:inXSDgYear ?gEndYear.
+				?v hht:validityPeriod ?pInterval.
+				?pInterval time:hasBeginning ?pBegin.
+				?pBegin time:inXSDgYear ?pBeginYear.
+				?pInterval time:hasEnd ?pEnd.
+				?pEnd time:inXSDgYear ?pEndYear.
+				BIND(IF(?pBeginYear < ?gBeginYear, ?gBeginYear, ?pBeginYear) AS ?datestartV)
+				BIND(IF(?pEndYear > ?gEndYear, ?gEndYear, ?pENdYear) AS ?dateendV)		
+			}
+			FILTER((?datestartV >= ?datestart && ?datestartV <= ?dateend) ||(?dateendV >= ?datestart && ?dateendV <= ?dateend)
+		}
+
+Still, the opposite is true for some queries. If we want to query for a list of all the actual changes occuring at a specific date, in TSN it will be written :
+
+		SELECT DISTINCT ?date WHERE {
+			oba:versionA tsn:isMemberOf ?levelV.
+			?levelV tsn:isDivisionOf ?nomenclatureV.
+			oba:versionA tsn:isVersionOf ?A.
+			?nomenclatureV tsn:referencePeriod ?intervalA.
+			?intervalA time:hasEnd ?endA.
+			?endA time:inXSDgYear ?endDateA.
+			?nomenclatureV tsn:isVersionOf ?nomenclature.
+			?nomenclature tsn:hasVersion ?otherV.
+			?otherV tsn:referencePeriod ?intervalOther.
+			?intervalOther time:hasBeginning ?beginOther.
+			?beginOther time:inXSDgYear ?date.
+			FILTER (?date >= ?endDateA)
+			?A tsn:hasVersion ?aV.
+			?aV tsn:isMemberOf ?levelaV.
+			?levelaV tsn:isDivisionOf ?otherV.
+			oba:versionA tsn:hasGeometry ?geoA.
+			?aV tsn:hasGeometry ?geoAv.
+			FILTER(?aV != ?geoAv).
+			oba:versionA tsn:hasName ?nameA.
+			?aV tsn:hasName ?nameAv.
+			FILTER(?nameA != ?nameAv).
+		} ORDER BY ?date LIMIT 1
+
+While in HHT it can be expressed as :
+
+
+		SELECT DISTINCT ?date WHERE {
+			oba:versionA hht:hasNextVersion ?nV.
+			oba:versionA hht:validityPeriod ?Interval.
+			?Interval time:hasEnd ?end.
+			?end time:inXSDgYear ?date.
+		}
