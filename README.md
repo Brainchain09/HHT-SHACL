@@ -50,7 +50,7 @@ Examples of knowledge graphs using HHT are provided. They are located in the fol
 
 Every dataset folder contains a **.ttl** file containing the initial knowledge graph, the result of the FDD version of the algorithm on this graph (**resultAlgo.ttl**) a dataset description and, when pertinent, the original datasets used to create the knowledge graphs.
 
-
+## Querying
 
 We provide example of SPARQL queries that can be used in order to query the knowledge graph and the result of the algorithm.
 
