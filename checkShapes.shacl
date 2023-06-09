@@ -1,0 +1,124 @@
+@prefix hht: <https://w3id.org/HHT#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+hht:UnitBasicRuleShape a sh:NodeShape ;
+	sh:targetClass hht:Unit;
+    sh:property [
+		sh:path rdfs:label ;
+		sh:minCount 1
+	] ;
+    sh:property [
+		sh:path hht:hasID ;
+		sh:minCount 1
+	];
+    sh:property [
+		sh:path hht:hasVersion ;
+		sh:minCount 1
+	].
+
+
+
+hht:HierarchyConsistency
+	a sh:NodeShape ;
+	sh:targetClass hht:UnitVersion ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Intersection of Hierarchy temporality." ;
+		sh:prefixes hht: ;
+		sh:select """
+		PREFIX hht: <https://w3id.org/HHT#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			SELECT $this (hht:hasSubUnit as ?path) ?value
+			WHERE {
+				$this hht:hasSubUnit ?value.
+                ?value hht:validityPeriod ?t2.
+                ?t2 time:hasBeginning ?s2.
+                ?s2 time:inXSDgYear ?st2.
+                ?t2 time:hasEnd ?e2.
+                ?e2 time:inXSDgYear ?et2.
+                $this hht:validityPeriod ?t1.
+                ?t1 time:hasBeginning ?s1.
+                ?s1 time:inXSDgYear ?st1.
+                ?t1 time:hasEnd ?e1.
+                ?e1 time:inXSDgYear ?et1.
+                FILTER ((?st1>?et2) || (?st2>?et1))
+            }
+			""" ;
+	] .
+
+hht:VersionningConsistency
+	a sh:NodeShape ;
+	sh:targetClass hht:UnitVersion ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Same versions." ;
+		sh:prefixes hht: ;
+		sh:select """
+		PREFIX hht: <https://w3id.org/HHT#>
+			PREFIX time: <http://www.w3.org/2006/time#>
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+			SELECT $this (hht:hasNextVersion as ?path) ?nextVer
+			WHERE {
+				?unit hht:hasVersion $this.
+				?unit hht:hasVersion ?nextVer.
+				FILTER (?nextVer != $this)
+				$this hht:validityPeriod ?t1.
+                ?t1 time:hasEnd ?i1.
+				?nextVer hht:validityPeriod ?t2.
+                ?t2 time:hasBeginning ?i1.
+				$this rdfs:label ?label.
+				?nextVer rdfs:label ?label.
+				FILTER NOT EXISTS{$this hht:contains ?version.
+				?version hht:isMemberOf ?level.
+				?level a hht:ElementaryLevelVersion.
+				?nextVer hht:contains ?versionN.
+				?versionN hht:isMemberOf ?l.
+				?l a hht:ElementaryLevelVersion.
+				FILTER NOT EXISTS {
+					?block hht:hasVersion ?versionN.
+					?block hht:hasVersion ?version.
+				}}
+            }
+			""" ;
+	] .
+
+
+
+
+hht:UnitVersionBasicRuleShape a sh:NodeShape ;
+	sh:targetClass hht:UnitVersion;
+    sh:property [
+       sh:path rdfs:label ;
+		sh:minCount 1 ; sh:maxCount 1
+	];
+    sh:property [
+       sh:path hht:validityPeriod ;
+		sh:minCount 1 ; sh:maxCount 1
+	];
+    sh:property [
+       sh:path hht:isMemberOf ;
+		sh:minCount 1
+	];
+    sh:or (
+		[
+			sh:path hht:isMemberOf ;
+			sh:minCount 1 ;
+            sh:class hht:ElementaryLevelVersion
+		]
+		[
+			sh:path hht:contains ;
+            sh:minCount 1 ;
+            sh:qualifiedValueShape [
+			    sh:path hht:isMemberOf;
+			    sh:class hht:ElementaryLevelVersion ;
+		    ] ;
+		    sh:qualifiedMinCount 1
+		]
+	).
+
+
+
