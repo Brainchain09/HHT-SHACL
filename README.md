@@ -48,7 +48,7 @@ Examples of knowledge graphs using HHT are provided. They are located in the fol
  - NUTS
  - Third Republic
 
-Every dataset folder contains a **.ttl** file containing the initial knowledge graph, the result of the FDD version of the algorithm on this graph (**resultAlgo.ttl**) a dataset description and, when pertinent, the original datasets used to create the knowledge graphs.
+Every dataset folder contains a **.ttl** file containing the initial knowledge graph, the result of the FDD version of the algorithm on this graph (**resultAlgo.ttl**) a dataset description and, when pertinent, the original datasets used to create the knowledge graphs. The source files for these datasets are available at https://zenodo.org/record/8019886.
 
 ## Querying
 
